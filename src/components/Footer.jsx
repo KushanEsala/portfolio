@@ -8,7 +8,7 @@ const Footer = () => {
         <div className="flex flex-col md:flex-row justify-between items-center">
           <div className="mb-4 md:mb-0">
             <p className="text-muted-foreground">
-              © 2025 Portfolio. Made with <Heart size={16} className="inline text-red-500" /> by BSc IT Student
+              © 2025 Portfolio. Made with React by Kushan Esala
             </p>
           </div>
           <div className="flex space-x-6">
