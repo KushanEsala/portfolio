@@ -121,7 +121,7 @@ const Hero = () => {
               </a>
 
                             <a 
-                href="https://drive.google.com/file/d/1rjlegzB3GSUBIoxOUruW1pT-MooPoImo/view?usp=drive_link" 
+                href="https://drive.google.com/file/d/1dtGQ_5xV4y7DaqM_5nznWRD49yuCGV6J/view?usp=sharing" 
                 className="p-3 rounded-full bg-secondary hover:bg-primary transition-all duration-300 transform hover:scale-110 hover:rotate-12"
               >
                 <FileUser size={24} />
