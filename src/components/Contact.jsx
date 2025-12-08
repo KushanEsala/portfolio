@@ -1,6 +1,6 @@
 import React, { useRef, useState } from 'react'
 import { motion } from 'framer-motion'
-import { Mail, Phone, MapPin } from 'lucide-react'
+import { Mail, Phone, MapPin, ArrowRight } from 'lucide-react'
 import { Input } from '@/components/ui/input'
 import { Textarea } from '@/components/ui/textarea'
 import { Button } from '@/components/ui/button'
@@ -24,14 +24,6 @@ const Contact = () => {
     // 1. Send email to YOU (Admin)
     const sendToAdmin = emailjs.sendForm(serviceId, templateIdAdmin, form.current, publicKey);
 
-    // 2. Send auto-reply to USER (Optional - requires second template)
-    // We construct a parameter object for the auto-reply because sendForm sends everything. 
-    // Ideally, for the auto-reply, you just need the user's email and name.
-    // However, sendForm is easiest if the template uses the same field names.
-    // If you haven't created a second template yet, this second call might fail or send a duplicate to you if IDs match.
-    // I'll assume you will create a NEW template for the auto-reply.
-
-    // For now, I'll sequence them.
     sendToAdmin
       .then((result) => {
         // Only if admin email succeeds, try sending the auto-reply
@@ -48,73 +40,117 @@ const Contact = () => {
   }
 
   return (
-    <section id="contact" className="py-16 md:py-24 bg-background text-foreground">
-      <div className="container mx-auto px-6">
-        <motion.h2
-          className="text-4xl md:text-5xl font-bold text-center mb-12 bg-gradient-to-r from-primary to-secondary bg-clip-text text-transparent"
-          initial={{ opacity: 0, y: -50 }}
-          whileInView={{ opacity: 1, y: 0 }}
-          viewport={{ once: true, amount: 0.5 }}
-          transition={{ duration: 0.6 }}
-        >
-          Get In Touch
-        </motion.h2>
+    <section id="contact" className="py-20 md:py-32 bg-background relative overflow-hidden">
+      {/* Background elements */}
+      <div className="absolute top-1/2 left-1/2 -translate-x-1/2 -translate-y-1/2 w-[500px] h-[500px] bg-primary/5 rounded-full blur-[100px] pointer-events-none"></div>
 
-        <div className="flex flex-col lg:flex-row gap-12">
+      <div className="container mx-auto px-6 relative z-10">
+        <motion.div
+          initial={{ opacity: 0, y: -20 }}
+          whileInView={{ opacity: 1, y: 0 }}
+          className="text-center mb-16"
+        >
+          <h2 className="text-4xl md:text-5xl font-bold mb-4 bg-gradient-to-r from-primary to-secondary bg-clip-text text-transparent text-glow">
+            Initialize Comms
+          </h2>
+          <p className="text-muted-foreground max-w-2xl mx-auto">
+            Ready to collaborate? Establish a secure connection below.
+          </p>
+        </motion.div>
+
+        <div className="flex flex-col lg:flex-row gap-12 max-w-6xl mx-auto">
+          {/* Contact Info Panel */}
           <motion.div
-            className="lg:w-1/2 space-y-8"
+            className="lg:w-1/3 space-y-8"
             initial={{ opacity: 0, x: -50 }}
             whileInView={{ opacity: 1, x: 0 }}
             viewport={{ once: true, amount: 0.5 }}
             transition={{ duration: 0.6, delay: 0.2 }}
           >
-            <div className="flex items-center space-x-4">
-              <Mail size={32} className="text-primary" />
-              <div>
-                <h3 className="text-xl font-semibold">Email</h3>
-                <p className="text-muted-foreground">kushanesalakck@gmail.com</p>
+            <div className="glass p-8 rounded-2xl h-full border-l-4 border-l-primary relative overflow-hidden">
+              <div className="absolute top-0 right-0 p-4 opacity-20">
+                <Mail size={100} className="text-primary" />
               </div>
-            </div>
-            <div className="flex items-center space-x-4">
-              <Phone size={32} className="text-primary" />
-              <div>
-                <h3 className="text-xl font-semibold">Phone</h3>
-                <p className="text-muted-foreground">+94 (75) 462-8289</p>
-              </div>
-            </div>
-            <div className="flex items-center space-x-4">
-              <MapPin size={32} className="text-primary" />
-              <div>
-                <h3 className="text-xl font-semibold">Location</h3>
-                <p className="text-muted-foreground">Peradeniya, Kandy, Sri Lanka</p>
+
+              <h3 className="text-2xl font-bold mb-8 text-foreground">Transmission Data</h3>
+
+              <div className="space-y-8 relative z-10">
+                <div className="flex items-start space-x-4 group">
+                  <div className="p-3 rounded-lg bg-primary/10 text-primary group-hover:bg-primary group-hover:text-primary-foreground transition-colors duration-300">
+                    <Mail size={24} />
+                  </div>
+                  <div>
+                    <h4 className="text-sm font-medium text-muted-foreground mb-1">Electronic Mail</h4>
+                    <p className="text-foreground font-mono">kushanesalakck@gmail.com</p>
+                  </div>
+                </div>
+
+                <div className="flex items-start space-x-4 group">
+                  <div className="p-3 rounded-lg bg-secondary/10 text-secondary group-hover:bg-secondary group-hover:text-secondary-foreground transition-colors duration-300">
+                    <Phone size={24} />
+                  </div>
+                  <div>
+                    <h4 className="text-sm font-medium text-muted-foreground mb-1">Frequency</h4>
+                    <p className="text-foreground font-mono">+94 (75) 462-8289</p>
+                  </div>
+                </div>
+
+                <div className="flex items-start space-x-4 group">
+                  <div className="p-3 rounded-lg bg-accent/10 text-accent group-hover:bg-accent group-hover:text-accent-foreground transition-colors duration-300">
+                    <MapPin size={24} />
+                  </div>
+                  <div>
+                    <h4 className="text-sm font-medium text-muted-foreground mb-1">Base of Operations</h4>
+                    <p className="text-foreground font-mono">Peradeniya, Kandy, Sri Lanka</p>
+                  </div>
+                </div>
               </div>
             </div>
           </motion.div>
 
+          {/* Contact Form "Terminal" */}
           <motion.div
-            className="lg:w-1/2"
+            className="lg:w-2/3"
             initial={{ opacity: 0, x: 50 }}
             whileInView={{ opacity: 1, x: 0 }}
             viewport={{ once: true, amount: 0.5 }}
             transition={{ duration: 0.6, delay: 0.4 }}
           >
-            <form ref={form} onSubmit={sendEmail} className="space-y-6 p-8 bg-card rounded-lg shadow-lg">
-              <div>
-                <label htmlFor="user_name" className="block text-sm font-medium text-foreground mb-2">Name</label>
-                <Input type="text" id="user_name" name="user_name" placeholder="Your Name" className="w-full" required />
+            <div className="glass p-1 rounded-2xl overflow-hidden relative">
+              {/* Terminal Header */}
+              <div className="bg-muted/50 px-4 py-2 flex items-center gap-2 border-b border-white/5">
+                <div className="w-3 h-3 rounded-full bg-red-500"></div>
+                <div className="w-3 h-3 rounded-full bg-yellow-500"></div>
+                <div className="w-3 h-3 rounded-full bg-green-500"></div>
+                <span className="ml-2 text-xs text-muted-foreground font-mono">secure_message_uplink.exe</span>
               </div>
-              <div>
-                <label htmlFor="user_email" className="block text-sm font-medium text-foreground mb-2">Email</label>
-                <Input type="email" id="user_email" name="user_email" placeholder="your.email@example.com" className="w-full" required />
-              </div>
-              <div>
-                <label htmlFor="message" className="block text-sm font-medium text-foreground mb-2">Message</label>
-                <Textarea id="message" name="message" placeholder="Your message..." rows="5" className="w-full" required />
-              </div>
-              <Button type="submit" className="w-full text-lg py-3" disabled={isSubmitting}>
-                {isSubmitting ? 'Sending...' : 'Send Message'}
-              </Button>
-            </form>
+
+              <form ref={form} onSubmit={sendEmail} className="p-8 space-y-6">
+                <div className="grid grid-cols-1 md:grid-cols-2 gap-6">
+                  <div className="space-y-2">
+                    <label htmlFor="user_name" className="text-xs font-mono text-primary uppercase tracking-wider"> &gt; User_Identity</label>
+                    <Input type="text" id="user_name" name="user_name" placeholder="ENTER NAME" className="bg-background/30 border-primary/20 focus:border-primary font-mono" required />
+                  </div>
+                  <div className="space-y-2">
+                    <label htmlFor="user_email" className="text-xs font-mono text-primary uppercase tracking-wider"> &gt; Comms_Channel</label>
+                    <Input type="email" id="user_email" name="user_email" placeholder="ENTER EMAIL" className="bg-background/30 border-primary/20 focus:border-primary font-mono" required />
+                  </div>
+                </div>
+
+                <div className="space-y-2">
+                  <label htmlFor="message" className="text-xs font-mono text-primary uppercase tracking-wider"> &gt; Payload_Data</label>
+                  <Textarea id="message" name="message" placeholder="ENTER MESSAGE CONTENT..." rows="6" className="bg-background/30 border-primary/20 focus:border-primary font-mono" required />
+                </div>
+
+                <Button type="submit" className="w-full bg-primary/10 border border-primary text-primary hover:bg-primary hover:text-primary-foreground h-14 text-lg font-mono tracking-widest relative overflow-hidden group" disabled={isSubmitting}>
+                  <span className="relative z-10 flex items-center justify-center gap-2">
+                    {isSubmitting ? 'TRANSMITTING...' : 'INITIATE TRANSMISSION'}
+                    {!isSubmitting && <ArrowRight size={18} />}
+                  </span>
+                  <div className="absolute inset-0 bg-primary/20 transform -translate-x-full group-hover:translate-x-0 transition-transform duration-500"></div>
+                </Button>
+              </form>
+            </div>
           </motion.div>
         </div>
       </div>

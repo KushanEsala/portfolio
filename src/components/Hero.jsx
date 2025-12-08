@@ -1,151 +1,111 @@
 import React from 'react'
 import { motion } from 'framer-motion'
-import { ArrowDown, Github, Linkedin, Mail, FileUser } from 'lucide-react'
+import { ArrowDown, Github, Linkedin, Mail, FileUser, Terminal } from 'lucide-react'
 import { Button } from '@/components/ui/button'
 
 const Hero = () => {
-  const scrollToSection = (href) => {
-    const element = document.querySelector(href)
-    if (element) {
-      element.scrollIntoView({ behavior: 'smooth' })
-    }
-  }
-
   return (
-    <section id="home" className="min-h-screen flex items-center justify-center relative overflow-hidden">
-      {/* Background gradient */}
-      <div className="absolute inset-0 bg-gradient-to-br from-primary/5 via-background to-secondary/5"></div>
-      
-      {/* Animated background elements */}
-      <div className="absolute inset-0 overflow-hidden">
-        <motion.div
-          className="absolute top-1/4 left-1/4 w-64 h-64 bg-primary/10 rounded-full blur-3xl"
-          animate={{
-            x: [0, 100, 0],
-            y: [0, -50, 0],
-          }}
-          transition={{
-            duration: 20,
-            repeat: Infinity,
-            ease: "linear"
-          }}
-        />
-        <motion.div
-          className="absolute bottom-1/4 right-1/4 w-96 h-96 bg-secondary/10 rounded-full blur-3xl"
-          animate={{
-            x: [0, -100, 0],
-            y: [0, 50, 0],
-          }}
-          transition={{
-            duration: 25,
-            repeat: Infinity,
-            ease: "linear"
-          }}
-        />
+    <section id="home" className="min-h-screen flex items-center justify-center relative overflow-hidden pt-16">
+      {/* Abstract Background Shapes */}
+      <div className="absolute inset-0 overflow-hidden pointer-events-none">
+        <div className="absolute top-1/4 left-1/4 w-96 h-96 bg-primary/10 rounded-full blur-3xl animate-pulse"></div>
+        <div className="absolute bottom-1/4 right-1/4 w-96 h-96 bg-secondary/10 rounded-full blur-3xl animate-pulse" style={{ animationDelay: '1s' }}></div>
       </div>
 
-      <div className="container mx-auto px-6 relative z-10">
-        <div className="text-center max-w-4xl mx-auto">
-          {/* Main content */}
-          <motion.div
-            initial={{ opacity: 0, y: 50 }}
-            animate={{ opacity: 1, y: 0 }}
-            transition={{ duration: 0.8 }}
-          >
-            <motion.h1 
-              className="text-5xl md:text-7xl font-bold mb-6 bg-gradient-to-r from-primary to-secondary bg-clip-text text-transparent"
-              initial={{ opacity: 0, y: 30 }}
-              animate={{ opacity: 1, y: 0 }}
-              transition={{ duration: 0.8, delay: 0.2 }}
-            >
-              Full Stack Developer
-            </motion.h1>
-            
-            <motion.p 
-              className="text-xl md:text-2xl text-muted-foreground mb-8 leading-relaxed"
-              initial={{ opacity: 0, y: 30 }}
-              animate={{ opacity: 1, y: 0 }}
-              transition={{ duration: 0.8, delay: 0.4 }}
-            >
-              BSc IT Student passionate about creating innovative web applications, 
-              desktop solutions, and exploring the frontiers of data science and AI.
-            </motion.p>
+      <div className="container mx-auto px-6 relative z-10 text-center">
+        <motion.div
+          initial={{ opacity: 0, scale: 0.9 }}
+          animate={{ opacity: 1, scale: 1 }}
+          transition={{ duration: 0.5 }}
+          className="inline-block mb-4 px-4 py-1.5 rounded-full border border-primary/30 bg-primary/10 text-primary text-sm font-medium tracking-wide backdrop-blur-sm"
+        >
+          <span className="flex items-center gap-2">
+            <span className="relative flex h-2 w-2">
+              <span className="animate-ping absolute inline-flex h-full w-full rounded-full bg-primary opacity-75"></span>
+              <span className="relative inline-flex rounded-full h-2 w-2 bg-primary"></span>
+            </span>
+            Available for Hire
+          </span>
+        </motion.div>
 
-            <motion.div 
-              className="flex flex-col sm:flex-row gap-4 justify-center items-center mb-12"
-              initial={{ opacity: 0, y: 30 }}
-              animate={{ opacity: 1, y: 0 }}
-              transition={{ duration: 0.8, delay: 0.6 }}
-            >
-              <Button 
-                size="lg" 
-                onClick={() => scrollToSection('#projects')}
-                className="text-lg px-8 py-3 bg-primary hover:bg-primary/90 transition-all duration-300 transform hover:scale-105"
-              >
-                View My Work
-              </Button>
-              <Button 
-                variant="outline" 
-                size="lg"
-                onClick={() => scrollToSection('#contact')}
-                className="text-lg px-8 py-3 border-2 hover:bg-primary hover:text-primary-foreground transition-all duration-300 transform hover:scale-105"
-              >
-                Get In Touch
-              </Button>
-            </motion.div>
+        <motion.h1
+          className="text-5xl md:text-7xl lg:text-8xl font-bold mb-6 tracking-tight"
+          initial={{ opacity: 0, y: 20 }}
+          animate={{ opacity: 1, y: 0 }}
+          transition={{ duration: 0.5, delay: 0.2 }}
+        >
+          <span className="block text-foreground">Building the</span>
+          <span className="bg-gradient-to-r from-primary via-accent to-secondary bg-clip-text text-transparent text-glow">
+            Future of Web
+          </span>
+        </motion.h1>
 
-            {/* Social links */}
-            <motion.div 
-              className="flex justify-center space-x-6 mb-12"
-              initial={{ opacity: 0, y: 30 }}
-              animate={{ opacity: 1, y: 0 }}
-              transition={{ duration: 0.8, delay: 0.8 }}
-            >
-              <a 
-                href="https://github.com/KushanEsala" 
-                className="p-3 rounded-full bg-secondary hover:bg-primary transition-all duration-300 transform hover:scale-110 hover:rotate-12"
-              >
-                <Github size={24} />
-              </a>
-              <a 
-                href="https://www.linkedin.com/in/kushan-esala/" 
-                className="p-3 rounded-full bg-secondary hover:bg-primary transition-all duration-300 transform hover:scale-110 hover:rotate-12"
-              >
-                <Linkedin size={24} />
-              </a>
-              <a 
-                href="mailto:kushanesalakck@gmail.com" 
-                className="p-3 rounded-full bg-secondary hover:bg-primary transition-all duration-300 transform hover:scale-110 hover:rotate-12"
-              >
-                <Mail size={24} />
-              </a>
+        <motion.p
+          className="text-xl md:text-2xl text-muted-foreground mb-10 max-w-2xl mx-auto leading-relaxed"
+          initial={{ opacity: 0, y: 20 }}
+          animate={{ opacity: 1, y: 0 }}
+          transition={{ duration: 0.5, delay: 0.4 }}
+        >
+          I craft high-performance applications with cutting-edge technologies.
+          Specializing in React, Node.js, and immersive UI experiences.
+        </motion.p>
 
-                            <a 
-                href="https://drive.google.com/file/d/1dtGQ_5xV4y7DaqM_5nznWRD49yuCGV6J/view?usp=sharing" 
-                className="p-3 rounded-full bg-secondary hover:bg-primary transition-all duration-300 transform hover:scale-110 hover:rotate-12"
-              >
-                <FileUser size={24} />
-              </a>
-            </motion.div>
-          </motion.div>
+        <motion.div
+          className="flex flex-col sm:flex-row items-center justify-center gap-4 mb-10"
+          initial={{ opacity: 0, y: 20 }}
+          animate={{ opacity: 1, y: 0 }}
+          transition={{ duration: 0.5, delay: 0.6 }}
+        >
+          <a href="#projects">
+            <Button size="lg" className="bg-primary text-primary-foreground hover:bg-primary/90 text-lg px-8 h-14 rounded-full shadow-[0_0_20px_rgba(0,240,255,0.3)] hover:shadow-[0_0_30px_rgba(0,240,255,0.5)] transition-all duration-300">
+              View Projects <ArrowDown className="ml-2 h-5 w-5" />
+            </Button>
+          </a>
+          <a href="#contact">
+            <Button size="lg" variant="outline" className="text-lg px-8 h-14 rounded-full border-muted-foreground/30 hover:bg-white/5 hover:border-primary/50 transition-all duration-300">
+              Contact Me <Mail className="ml-2 h-5 w-5" />
+            </Button>
+          </a>
+        </motion.div>
 
-          {/* Scroll indicator */}
-          <motion.div 
-            className="absolute bottom-8 left-1/2 transform -translate-x-1/2"
-            initial={{ opacity: 0 }}
-            animate={{ opacity: 1 }}
-            transition={{ duration: 1, delay: 1 }}
-          >
-            <motion.button
-              onClick={() => scrollToSection('#about')}
-              className="p-2 rounded-full hover:bg-secondary transition-colors duration-300"
-              animate={{ y: [0, 10, 0] }}
-              transition={{ duration: 2, repeat: Infinity }}
-            >
-              <ArrowDown size={24} className="text-muted-foreground" />
-            </motion.button>
-          </motion.div>
-        </div>
+        {/* Restored Social Links with glitched cyber styling */}
+        <motion.div
+          className="flex justify-center space-x-6 relative z-20"
+          initial={{ opacity: 0, y: 20 }}
+          animate={{ opacity: 1, y: 0 }}
+          transition={{ duration: 0.5, delay: 0.8 }}
+        >
+          <a href="https://github.com/KushanEsala" target="_blank" rel="noopener noreferrer" className="p-3 rounded-xl bg-card border border-border/50 hover:border-primary/50 hover:bg-primary/10 hover:text-primary hover:shadow-[0_0_15px_rgba(0,240,255,0.3)] transition-all duration-300 group">
+            <Github size={24} className="group-hover:scale-110 transition-transform" />
+          </a>
+          <a href="https://www.linkedin.com/in/kushan-esala/" target="_blank" rel="noopener noreferrer" className="p-3 rounded-xl bg-card border border-border/50 hover:border-primary/50 hover:bg-primary/10 hover:text-primary hover:shadow-[0_0_15px_rgba(0,240,255,0.3)] transition-all duration-300 group">
+            <Linkedin size={24} className="group-hover:scale-110 transition-transform" />
+          </a>
+          <a href="mailto:kushanesalakck@gmail.com" className="p-3 rounded-xl bg-card border border-border/50 hover:border-primary/50 hover:bg-primary/10 hover:text-primary hover:shadow-[0_0_15px_rgba(0,240,255,0.3)] transition-all duration-300 group">
+            <Mail size={24} className="group-hover:scale-110 transition-transform" />
+          </a>
+          <a href="https://drive.google.com/file/d/1dtGQ_5xV4y7DaqM_5nznWRD49yuCGV6J/view?usp=sharing" target="_blank" rel="noopener noreferrer" className="p-3 rounded-xl bg-card border border-border/50 hover:border-primary/50 hover:bg-primary/10 hover:text-primary hover:shadow-[0_0_15px_rgba(0,240,255,0.3)] transition-all duration-300 group">
+            <FileUser size={24} className="group-hover:scale-110 transition-transform" />
+          </a>
+        </motion.div>
+
+        {/* Tech Decor elements */}
+        <motion.div
+          className="absolute left-10 bottom-20 opacity-20 hidden lg:block"
+          initial={{ opacity: 0, x: -50 }}
+          animate={{ opacity: 0.2, x: 0 }}
+          transition={{ delay: 1 }}
+        >
+          <Github size={48} />
+        </motion.div>
+        <motion.div
+          className="absolute right-10 top-40 opacity-20 hidden lg:block"
+          initial={{ opacity: 0, x: 50 }}
+          animate={{ opacity: 0.2, x: 0 }}
+          transition={{ delay: 1.2 }}
+        >
+          <Terminal size={48} />
+        </motion.div>
       </div>
     </section>
   )

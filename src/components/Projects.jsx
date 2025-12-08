@@ -47,9 +47,7 @@ const Projects = () => {
     hidden: { opacity: 0 },
     show: {
       opacity: 1,
-      transition: {
-        staggerChildren: 0.1,
-      },
+      transition: { staggerChildren: 0.2 },
     },
   }
 
@@ -59,60 +57,80 @@ const Projects = () => {
   }
 
   return (
-    <section id="projects" className="py-16 md:py-24 bg-card text-card-foreground">
-      <div className="container mx-auto px-6">
-        <motion.h2
-          className="text-4xl md:text-5xl font-bold text-center mb-12 bg-gradient-to-r from-primary to-secondary bg-clip-text text-transparent"
-          initial={{ opacity: 0, y: -50 }}
+    <section id="projects" className="py-20 md:py-32 bg-background/50 relative">
+      <div className="container mx-auto px-6 relative z-10">
+        <motion.div
+          initial={{ opacity: 0, y: -20 }}
           whileInView={{ opacity: 1, y: 0 }}
-          viewport={{ once: true, amount: 0.5 }}
-          transition={{ duration: 0.6 }}
+          className="text-center mb-16"
         >
-          My Projects
-        </motion.h2>
+          <h2 className="text-4xl md:text-5xl font-bold mb-4 bg-gradient-to-r from-primary to-secondary bg-clip-text text-transparent text-glow">
+            Featured Projects
+          </h2>
+          <p className="text-muted-foreground max-w-2xl mx-auto">
+            A showcase of my recent work, ranging from web applications to AI systems.
+          </p>
+        </motion.div>
 
         <motion.div
           className="grid grid-cols-1 md:grid-cols-2 lg:grid-cols-3 gap-10"
           variants={containerVariants}
           initial="hidden"
           whileInView="show"
-          viewport={{ once: true, amount: 0.3 }}
+          viewport={{ once: true, amount: 0.2 }}
         >
           {projectsData.map((project, index) => (
             <motion.div
               key={index}
-              className="bg-background rounded-lg shadow-xl overflow-hidden transform hover:scale-105 transition-transform duration-300"
+              className="glass-card rounded-xl overflow-hidden group relative"
               variants={itemVariants}
+              whileHover={{ y: -10 }}
             >
-              <img
-                src={project.image}
-                alt={project.title}
-                className="w-full h-48 object-cover"
-              />
-              <div className="p-6">
-                <h3 className="text-2xl font-semibold mb-3 text-primary">{project.title}</h3>
-                <p className="text-muted-foreground mb-4">{project.description}</p>
-                <div className="flex flex-wrap gap-2 mb-4">
-                  {project.technologies.map((tech, techIndex) => (
-                    <Badge key={techIndex} variant="secondary">{tech}</Badge>
+              <div className="relative h-48 overflow-hidden">
+                <div className="absolute inset-0 bg-primary/20 mix-blend-overlay z-10 opacity-0 group-hover:opacity-100 transition-opacity duration-300"></div>
+                <img
+                  src={project.image}
+                  alt={project.title}
+                  className="w-full h-full object-cover transition-transform duration-500 group-hover:scale-110 grayscale group-hover:grayscale-0"
+                />
+              </div>
+
+              <div className="p-6 relative">
+                {/* Holographic Border Effect */}
+                <div className="absolute inset-x-0 bottom-0 h-1 bg-gradient-to-r from-transparent via-primary to-transparent opacity-0 group-hover:opacity-100 transition-opacity duration-300"></div>
+
+                <h3 className="text-xl font-bold mb-2 text-foreground group-hover:text-primary transition-colors duration-300">{project.title}</h3>
+                <p className="text-muted-foreground text-sm mb-4 line-clamp-3 leading-relaxed">{project.description}</p>
+
+                <div className="flex flex-wrap gap-2 mb-6">
+                  {project.technologies.slice(0, 3).map((tech, techIndex) => (
+                    <Badge key={techIndex} variant="outline" className="border-primary/30 text-primary text-xs bg-primary/5">
+                      {tech}
+                    </Badge>
                   ))}
+                  {project.technologies.length > 3 && (
+                    <Badge variant="outline" className="border-muted text-muted-foreground text-xs">
+                      +{project.technologies.length - 3}
+                    </Badge>
+                  )}
                 </div>
-                <div className="flex space-x-4">
+
+                <div className="flex items-center justify-between mt-auto pt-4 border-t border-border/50">
                   <a
                     href={project.github}
                     target="_blank"
                     rel="noopener noreferrer"
-                    className="flex items-center text-foreground hover:text-primary transition-colors duration-200"
+                    className="flex items-center text-sm text-muted-foreground hover:text-white transition-colors duration-200"
                   >
-                    <Github size={20} className="mr-2" /> GitHub
+                    <Github size={16} className="mr-2" /> Code
                   </a>
                   <a
                     href={project.live}
                     target="_blank"
                     rel="noopener noreferrer"
-                    className="flex items-center text-foreground hover:text-primary transition-colors duration-200"
+                    className="flex items-center text-sm text-primary hover:text-accent transition-colors duration-200"
                   >
-                    <ExternalLink size={20} className="mr-2" /> Live Demo
+                    <ExternalLink size={16} className="mr-2" /> Live Demo
                   </a>
                 </div>
               </div>
