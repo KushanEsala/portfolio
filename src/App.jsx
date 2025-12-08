@@ -1,4 +1,5 @@
 import React from 'react'
+import { Toaster } from 'sonner'
 import './App.css'
 import { ThemeProvider } from './contexts/ThemeContext'
 import Header from './components/Header'
@@ -13,6 +14,7 @@ function App() {
   return (
     <ThemeProvider>
       <div className="min-h-screen bg-background transition-colors duration-300">
+        <Toaster richColors position="top-right" />
         <Header />
         <main>
           <Hero />
