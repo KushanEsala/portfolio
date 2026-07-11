@@ -14,10 +14,10 @@ import Footer from './components/Footer'
 function App() {
   return (
     <ThemeProvider>
-      <div className="min-h-screen bg-background transition-colors duration-300">
+      <div className="min-h-screen bg-background text-foreground transition-colors duration-300">
         <Toaster richColors position="top-right" />
         <Header />
-        <main>
+        <main className="relative">
           <Hero />
           <About />
           <Experience />

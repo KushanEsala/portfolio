@@ -1,3 +1,4 @@
+/* eslint-disable no-unused-vars */
 import React from 'react'
 import { motion } from 'framer-motion'
 import {
@@ -23,39 +24,25 @@ const skillsData = [
 ]
 
 const Skills = () => {
-  const containerVariants = {
-    hidden: { opacity: 0 },
-    show: {
-      opacity: 1,
-      transition: { staggerChildren: 0.1 }
-    }
-  }
-
-  const itemVariants = {
-    hidden: { opacity: 0, scale: 0.8 },
-    show: { opacity: 1, scale: 1 }
-  }
-
-  // Group skills by category for "Dashboard" sections
   const categories = {
-    "Languages": skillsData.filter(s => s.category === "Languages"),
-    "Frameworks": skillsData.filter(s => s.category === "Frameworks"),
-    "Areas": skillsData.filter(s => s.category === "Areas"),
+    Languages: skillsData.filter((s) => s.category === 'Languages'),
+    Frameworks: skillsData.filter((s) => s.category === 'Frameworks'),
+    Areas: skillsData.filter((s) => s.category === 'Areas'),
   }
 
   return (
-    <section id="skills" className="py-20 md:py-32 bg-background relative">
+    <section id="skills" className="py-20 md:py-28 bg-background relative section-shell">
       <div className="container mx-auto px-6 relative z-10">
         <motion.div
           initial={{ opacity: 0, y: -20 }}
           whileInView={{ opacity: 1, y: 0 }}
           className="text-center mb-16"
         >
-          <h2 className="text-4xl md:text-5xl font-bold mb-4 bg-gradient-to-r from-primary to-secondary bg-clip-text text-transparent text-glow">
+          <h2 className="section-title text-4xl md:text-5xl font-bold mb-4">
             Technical Proficiency
           </h2>
           <p className="text-muted-foreground max-w-2xl mx-auto">
-            A comprehensive suite of tools and technologies I leverage to build robust solutions.
+            A practical toolkit I use to design, build, and refine full-stack applications.
           </p>
         </motion.div>
 
@@ -63,7 +50,7 @@ const Skills = () => {
           {Object.entries(categories).map(([category, skills], idx) => (
             <motion.div
               key={category}
-              className="glass p-8 rounded-2xl relative overflow-hidden group"
+              className="glass p-8 rounded-[1.75rem] relative overflow-hidden group"
               initial={{ opacity: 0, y: 50 }}
               whileInView={{ opacity: 1, y: 0 }}
               transition={{ delay: idx * 0.2 }}
@@ -79,7 +66,7 @@ const Skills = () => {
                 {skills.map((skill, index) => (
                   <motion.div
                     key={index}
-                    className="flex items-center gap-3 p-3 rounded-lg bg-card/40 border border-border/50 hover:border-primary/50 hover:bg-primary/10 transition-all duration-300"
+                    className="flex items-center gap-3 rounded-2xl border border-border/60 bg-background/50 p-3 transition-all duration-300 hover:border-primary/50 hover:bg-primary/8"
                     whileHover={{ scale: 1.05 }}
                   >
                     <skill.icon className="text-2xl text-primary" />
@@ -96,4 +83,3 @@ const Skills = () => {
 }
 
 export default Skills
-
