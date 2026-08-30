@@ -38,23 +38,24 @@ const Header = () => {
       }`}>
       <nav className="container mx-auto px-6 py-4">
         <div className="flex items-center justify-between">
-          <button onClick={() => scrollToSection('#home')} className="flex items-center gap-3 text-left">
+          <a href="#home" onClick={(event) => { event.preventDefault(); scrollToSection('#home') }} className="flex items-center gap-3 text-left">
             <img src="/ke-mark.svg" alt="" className="h-10 w-10" />
             <span>
               <span className="block font-mono text-xs uppercase tracking-[0.24em] text-primary">Kushan Esala</span>
               <span className="block text-sm font-semibold text-foreground">Software engineer</span>
             </span>
-          </button>
+          </a>
 
           <div className="hidden md:flex items-center space-x-8">
             {navItems.map((item) => (
-              <button
+              <a
                 key={item.name}
-                onClick={() => scrollToSection(item.href)}
+                href={item.href}
+                onClick={(event) => { event.preventDefault(); scrollToSection(item.href) }}
                 className="text-sm text-foreground/80 hover:text-primary transition-colors duration-200 font-medium"
               >
                 {item.name}
-              </button>
+              </a>
             ))}
             <a
               href={profile.resume}
@@ -86,13 +87,14 @@ const Header = () => {
           <div className="mt-4 border border-border bg-card pb-4 md:hidden">
             <div className="flex flex-col space-y-2 pt-4 px-4">
               {navItems.map((item) => (
-                <button
+                <a
                   key={item.name}
-                  onClick={() => scrollToSection(item.href)}
+                  href={item.href}
+                  onClick={(event) => { event.preventDefault(); scrollToSection(item.href) }}
                   className="text-left text-foreground hover:text-primary transition-colors duration-200 font-medium py-2"
                 >
                   {item.name}
-                </button>
+                </a>
               ))}
               <a
                 href={profile.resume}
