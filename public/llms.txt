@@ -1,0 +1,29 @@
+# Kushan Esala
+
+> Official portfolio of Kushan Esala, an Associate Research And Development Engineer and software engineer in Sri Lanka.
+
+Kushan builds production SaaS applications, backend services, business systems, AI-assisted automation, data workflows, and Linux-based infrastructure. The portfolio presents verified professional experience, selected commercial systems, academic work, technical skills, and contact information.
+
+## Portfolio
+
+- [Home](https://kushanesala.me/): Official portfolio and professional overview.
+- [About](https://kushanesala.me/#about): Engineering focus, background, education, and certifications.
+- [Experience](https://kushanesala.me/#experience): Current and previous software engineering roles.
+- [Skills](https://kushanesala.me/#skills): Languages, frameworks, data tools, automation, cloud, and DevOps capabilities.
+- [Projects](https://kushanesala.me/#projects): Commercial systems, final-year research, and selected academic projects.
+- [Contact](https://kushanesala.me/#contact): Contact form for engineering work, SaaS builds, and product demonstrations.
+
+## Professional Profiles
+
+- [LinkedIn](https://www.linkedin.com/in/kushan-esala/): Current professional profile and employment history.
+- [GitHub](https://github.com/KushanEsala): Public source repositories and development activity.
+- [Resume](https://drive.google.com/file/d/12Xw3GlJfunqGZ5ibOkPNnxWkkcWfnF5L/view?usp=drive_link): Current curriculum vitae.
+
+## Commercial Systems
+
+- [Grocery POS and Retail ERP](https://pos.kushanesala.me/): Production retail system for checkout, purchasing, inventory, shifts, expenses, auditing, and reporting.
+- [Hire Purchase ERP](https://erp.examebuddy.com/): Production system for agreements, installments, inventory, sales, receivables, payables, and branch reporting.
+
+## Optional
+
+- [SIBA Campus](https://siba.edu.lk/): Institution where Kushan completed a BSc in Information Technology.
