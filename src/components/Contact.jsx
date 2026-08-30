@@ -21,7 +21,7 @@ const Contact = () => {
 
     setIsSubmitting(true)
 
-    const serviceId = 'service_19k2r8k'
+    const serviceId = 'service_7s35djb'
     const templateIdAdmin = 'template_zvdz9wr'
     const publicKey = 'bf9sqmWD96PA8g5mT'
 
