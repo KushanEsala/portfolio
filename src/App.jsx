@@ -15,7 +15,7 @@ function App() {
   return (
     <ThemeProvider>
       <div className="min-h-screen bg-background text-foreground transition-colors duration-300">
-        <Toaster richColors position="top-right" />
+        <Toaster richColors position="top-right" duration={4500} closeButton visibleToasts={3} />
         <Header />
         <main className="relative">
           <Hero />

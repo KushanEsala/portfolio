@@ -6,40 +6,32 @@
   content: "";
   position: absolute;
   inset: 0;
-  background-image: linear-gradient(to right, rgba(255, 255, 255, 0.03) 1px, transparent 1px);
-  background-size: 120px 1px;
-  opacity: 0.2;
+  background-image: linear-gradient(to right, color-mix(in srgb, hsl(var(--border)) 36%, transparent) 1px, transparent 1px);
+  background-size: 160px 1px;
+  opacity: 0.35;
   pointer-events: none;
 }
 
 .glass {
-  background: color-mix(in srgb, hsl(var(--card)) 78%, transparent);
-  backdrop-filter: blur(18px);
-  -webkit-backdrop-filter: blur(18px);
-  border: 1px solid color-mix(in srgb, hsl(var(--border)) 80%, transparent);
-  box-shadow: 0 20px 60px rgba(15, 23, 42, 0.08);
+  background: hsl(var(--card));
+  border: 1px solid hsl(var(--border));
+  box-shadow: 0 8px 24px rgba(15, 23, 42, 0.06);
 }
 
 .glass-card {
-  background: color-mix(in srgb, hsl(var(--card)) 88%, transparent);
-  backdrop-filter: blur(14px);
-  -webkit-backdrop-filter: blur(14px);
-  border: 1px solid color-mix(in srgb, hsl(var(--border)) 75%, transparent);
-  box-shadow: 0 22px 50px rgba(15, 23, 42, 0.08);
-  transition: transform 0.3s ease, box-shadow 0.3s ease, border-color 0.3s ease;
+  background: hsl(var(--card));
+  border: 1px solid hsl(var(--border));
+  box-shadow: 0 8px 24px rgba(15, 23, 42, 0.05);
+  transition: border-color 0.2s ease;
 }
 
 .glass-card:hover {
-  transform: translateY(-4px);
   border-color: color-mix(in srgb, hsl(var(--primary)) 45%, hsl(var(--border)));
-  box-shadow: 0 28px 70px rgba(15, 23, 42, 0.14);
 }
 
 .section-title {
-  background: linear-gradient(135deg, hsl(var(--foreground)), hsl(var(--primary)));
-  -webkit-background-clip: text;
-  background-clip: text;
-  color: transparent;
+  color: hsl(var(--foreground));
+  letter-spacing: -0.035em;
 }
 
 .hero-grid {
@@ -61,6 +53,258 @@
 ::-webkit-scrollbar-thumb {
   background: color-mix(in srgb, hsl(var(--muted-foreground)) 35%, transparent);
   border-radius: 999px;
+}
+
+.hero-section {
+  background: color-mix(in srgb, hsl(var(--primary)) 3%, hsl(var(--background)));
+}
+
+.hero-title {
+  letter-spacing: -0.055em;
+}
+
+.status-dot {
+  width: 0.5rem;
+  height: 0.5rem;
+  border-radius: 999px;
+  background: hsl(var(--accent));
+  box-shadow: 0 0 0 5px color-mix(in srgb, hsl(var(--accent)) 16%, transparent);
+  animation: status-pulse 2.2s ease-in-out infinite;
+}
+
+.systems-panel {
+  border: 1px solid hsl(var(--border));
+  border-top: 3px solid hsl(var(--primary));
+  border-radius: 0.6rem;
+  background: hsl(var(--card));
+  box-shadow: 12px 12px 0 color-mix(in srgb, hsl(var(--primary)) 9%, transparent);
+}
+
+.delivery-node {
+  position: relative;
+  border: 1px solid hsl(var(--border));
+  border-radius: 0.7rem;
+  background: color-mix(in srgb, hsl(var(--background)) 72%, transparent);
+  transition: border-color 180ms ease, transform 180ms ease;
+}
+
+.delivery-node:hover {
+  transform: translateX(4px);
+  border-color: hsl(var(--primary));
+}
+
+.node-check {
+  display: grid;
+  width: 1.75rem;
+  height: 1.75rem;
+  place-items: center;
+  border-radius: 999px;
+  color: hsl(var(--accent-foreground));
+  background: hsl(var(--accent));
+}
+
+.delivery-line {
+  position: absolute;
+  left: 1.72rem;
+  top: calc(100% + 1px);
+  width: 1px;
+  height: 0.75rem;
+  background: hsl(var(--primary));
+}
+
+.social-link {
+  display: flex;
+  align-items: center;
+  justify-content: center;
+  gap: 0.45rem;
+  min-height: 2.8rem;
+  border: 1px solid hsl(var(--border));
+  border-radius: 0.6rem;
+  font-family: "IBM Plex Mono", monospace;
+  font-size: 0.72rem;
+  color: hsl(var(--muted-foreground));
+  transition: color 180ms ease, border-color 180ms ease, background 180ms ease;
+}
+
+.social-link:hover {
+  color: hsl(var(--primary));
+  border-color: hsl(var(--primary));
+  background: color-mix(in srgb, hsl(var(--primary)) 7%, transparent);
+}
+
+.fact-row {
+  display: flex;
+  align-items: center;
+  gap: 0.65rem;
+  border-left: 2px solid hsl(var(--secondary));
+  padding: 0.75rem 0.9rem;
+  background: color-mix(in srgb, hsl(var(--secondary)) 7%, transparent);
+  font-size: 0.86rem;
+  font-weight: 600;
+}
+
+.current-badge {
+  border: 1px solid color-mix(in srgb, hsl(var(--accent)) 65%, hsl(var(--border)));
+  border-radius: 999px;
+  padding: 0.25rem 0.65rem;
+  background: color-mix(in srgb, hsl(var(--accent)) 18%, transparent);
+  font-family: "IBM Plex Mono", monospace;
+  font-size: 0.68rem;
+  color: hsl(var(--foreground));
+}
+
+.education-strip {
+  border: 1px solid hsl(var(--border));
+  border-left: 4px solid hsl(var(--secondary));
+  border-radius: 0.8rem;
+  background: color-mix(in srgb, hsl(var(--card)) 84%, transparent);
+}
+
+.skill-chip {
+  border: 1px solid hsl(var(--border));
+  border-radius: 0.45rem;
+  min-height: 2.75rem;
+  padding: 0.55rem 0.7rem;
+  background: color-mix(in srgb, hsl(var(--card)) 70%, transparent);
+  font-family: "IBM Plex Mono", monospace;
+  font-size: 0.76rem;
+  transition: border-color 180ms ease, color 180ms ease, transform 180ms ease;
+}
+
+.skill-chip:hover {
+  transform: translateY(-2px);
+  border-color: hsl(var(--primary));
+  color: hsl(var(--primary));
+}
+
+.identity-panel {
+  min-height: 34rem;
+  padding: clamp(2rem, 5vw, 4rem);
+  border: 1px solid hsl(var(--border));
+  border-top: 4px solid hsl(var(--primary));
+  background: hsl(var(--card));
+  display: flex;
+  flex-direction: column;
+  justify-content: center;
+}
+
+.project-row {
+  border-radius: 0.35rem;
+  box-shadow: 0 12px 30px rgba(15, 23, 42, 0.07);
+}
+
+.experience-timeline {
+  position: relative;
+}
+
+.experience-timeline::before {
+  content: "";
+  position: absolute;
+  top: 1.5rem;
+  bottom: 8rem;
+  left: 0.43rem;
+  width: 1px;
+  background: hsl(var(--border));
+}
+
+.timeline-dot {
+  position: absolute;
+  top: 1.75rem;
+  left: 0;
+  z-index: 1;
+  width: 0.9rem;
+  height: 0.9rem;
+  border: 3px solid hsl(var(--background));
+  border-radius: 999px;
+  background: hsl(var(--muted-foreground));
+  box-shadow: 0 0 0 1px hsl(var(--border));
+}
+
+.timeline-dot.is-current {
+  background: hsl(var(--accent));
+  box-shadow: 0 0 0 1px hsl(var(--accent));
+}
+
+.project-card {
+  border-radius: 0.55rem;
+  box-shadow: 0 8px 22px rgba(15, 23, 42, 0.055);
+  transition: transform 180ms ease, border-color 180ms ease;
+}
+
+.project-card:hover {
+  transform: translateY(-3px);
+  border-color: color-mix(in srgb, hsl(var(--primary)) 45%, hsl(var(--border)));
+}
+
+.project-type {
+  position: absolute;
+  top: 0.75rem;
+  left: 0.75rem;
+  border: 1px solid rgba(255, 255, 255, 0.22);
+  border-radius: 999px;
+  padding: 0.28rem 0.55rem;
+  background: rgba(4, 12, 28, 0.78);
+  backdrop-filter: blur(8px);
+  font-family: "IBM Plex Mono", monospace;
+  font-size: 0.62rem;
+  color: white;
+}
+
+.project-type.commercial {
+  background: color-mix(in srgb, hsl(var(--primary)) 82%, rgba(4, 12, 28, 0.88));
+}
+
+.project-link {
+  display: inline-flex;
+  align-items: center;
+  gap: 0.4rem;
+  font-size: 0.75rem;
+  font-weight: 600;
+  color: hsl(var(--muted-foreground));
+  transition: color 180ms ease;
+}
+
+.project-link:hover,
+.project-link.is-live {
+  color: hsl(var(--primary));
+}
+
+.commercial-flyer {
+  display: grid;
+  gap: 0.9rem;
+  padding: 1rem;
+  border: 1px solid color-mix(in srgb, hsl(var(--primary)) 32%, hsl(var(--border)));
+  border-left: 3px solid hsl(var(--primary));
+  background: color-mix(in srgb, hsl(var(--primary)) 7%, hsl(var(--card)));
+}
+
+.demo-request {
+  display: inline-flex;
+  width: fit-content;
+  align-items: center;
+  gap: 0.45rem;
+  border-radius: 0.45rem;
+  padding: 0.55rem 0.75rem;
+  background: hsl(var(--primary));
+  font-size: 0.75rem;
+  font-weight: 700;
+  color: hsl(var(--primary-foreground));
+  transition: transform 180ms ease, opacity 180ms ease;
+}
+
+.demo-request:hover {
+  transform: translateX(2px);
+  opacity: 0.92;
+}
+
+@keyframes status-pulse {
+  0%, 100% { opacity: 1; }
+  50% { opacity: 0.45; }
+}
+
+@media (prefers-reduced-motion: reduce) {
+  html { scroll-behavior: auto; }
+  *, *::before, *::after { animation-duration: 0.01ms !important; animation-iteration-count: 1 !important; transition-duration: 0.01ms !important; }
 }
 
 ::-webkit-scrollbar-thumb:hover {

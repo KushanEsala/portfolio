@@ -1,146 +1,114 @@
 /* eslint-disable no-unused-vars */
 import React from 'react'
 import { motion } from 'framer-motion'
-import { Github, ExternalLink, Lock } from 'lucide-react'
+import { ArrowRight, Github, ExternalLink, FlaskConical, Store, WalletCards, Fuel, BarChart3, ShoppingBag } from 'lucide-react'
 import { Badge } from '@/components/ui/badge'
-import webProject1 from '../assets/web-project-1.jpg'
-import desktopProject1 from '../assets/desktop-project-1.jpg'
-import aiProject1 from '../assets/ai-project-1.jpg'
-import webProject2 from '../assets/web-project-2.jpg'
+import ddaProject from '../assets/project-dda-cover.png'
+import posProject from '../assets/project-pos.png'
+import hirePurchaseProject from '../assets/project-hire-purchase.png'
+import serviceStationProject from '../assets/web-project-1.jpg'
+import analyticsProject from '../assets/desktop-project-1.jpg'
+import shoppingProject from '../assets/web-project-2.jpg'
 
 const projectsData = [
   {
+    title: 'Generalized AI Dynamic Difficulty System',
+    category: 'Academic · Final-year research',
+    description: 'A generalized machine-learning system that studies gameplay telemetry and adapts difficulty through a guarded real-time controller.',
+    image: ddaProject,
+    technologies: ['Python', 'Scikit-learn', 'Supabase'],
+    icon: FlaskConical,
+  },
+  {
+    title: 'Grocery POS and Retail ERP',
+    category: 'Commercial system',
+    description: 'A production retail platform for barcode checkout, purchasing, batch and expiry stock, cashier shifts, expenses, auditing, and reporting.',
+    image: posProject,
+    technologies: ['Next.js', 'Laravel', 'MySQL'],
+    live: 'https://pos.kushanesala.me',
+    icon: Store,
+    commercial: true,
+  },
+  {
+    title: 'Hire Purchase ERP',
+    category: 'Commercial system',
+    description: 'A production operations platform for agreements, installments, inventory, sales, receivables, payables, and branch reporting.',
+    image: hirePurchaseProject,
+    technologies: ['Next.js', 'Laravel', 'MariaDB'],
+    icon: WalletCards,
+    commercial: true,
+  },
+  {
     title: 'Service Station Management System',
-    description: 'A responsive web application built with React and Laravel, featuring user authentication and a robust API.',
-    image: webProject1,
-    technologies: ['React', 'Laravel', 'MySQL', 'Tailwind CSS'],
+    category: 'Academic project',
+    description: 'A responsive service-station management application with secure authentication, operational workflows, and a Laravel API.',
+    image: serviceStationProject,
+    technologies: ['React', 'Laravel', 'MySQL'],
     github: 'https://github.com/AdvancedWebDevelopmwnt/ServiceStationManager',
-    live: '',
+    icon: Fuel,
   },
   {
     title: 'Business Analytics Dashboard',
-    description: 'A Java JSP desktop application for managing inventory and sales, with a user-friendly interface.',
-    image: desktopProject1,
-    technologies: ['Java Jsp', 'Servlets/Beans', 'SQL Server'],
+    category: 'Academic project',
+    description: 'A business reporting and inventory dashboard built with Java JSP, servlets, beans, and SQL Server.',
+    image: analyticsProject,
+    technologies: ['Java JSP', 'Servlets', 'SQL Server'],
     github: 'https://github.com/KushanEsala/BusinessAnalyticsDashboard',
-    live: '',
+    icon: BarChart3,
   },
   {
-    title: 'AI-Based DDA System for 2D Games',
-    description: 'My final year data science project: A Generalized AI-Based Dynamic Difficulty Adjustment System for 2D Games Using Machine Learning.',
-    image: aiProject1,
-    technologies: ['Python', 'Machine Learning', 'TensorFlow', 'Game Development'],
-    github: '',
-    live: '',
-  },
-  {
-    title: 'The Chargere Online Shopping Platform',
-    description: 'An e-commerce platform developed with PHP and JavaScript, integrating secure payment gateways.',
-    image: webProject2,
-    technologies: ['PHP', 'JavaScript', 'PostgreSQL', 'HTML', 'CSS'],
+    title: 'Chargere Online Shopping Platform',
+    category: 'Academic project',
+    description: 'An online shopping platform built with PHP and JavaScript, including product, customer, and checkout workflows.',
+    image: shoppingProject,
+    technologies: ['PHP', 'JavaScript', 'PostgreSQL'],
     github: 'https://github.com/KushanEsala/Online-shopping-platform',
-    live: '',
+    icon: ShoppingBag,
   },
 ]
 
-const Projects = () => {
-  return (
-    <section id="projects" className="py-20 md:py-28 bg-background/50 relative section-shell">
-      <div className="container mx-auto px-6 relative z-10">
-        <motion.div
-          initial={{ opacity: 0, y: -20 }}
-          whileInView={{ opacity: 1, y: 0 }}
-          className="text-center mb-16"
-        >
-          <h2 className="section-title text-4xl md:text-5xl font-bold mb-4">
-            Featured Projects
-          </h2>
-          <p className="text-muted-foreground max-w-2xl mx-auto">
-            A selection of web, business, and AI-focused work that reflects how I approach product building.
-          </p>
-        </motion.div>
+const Projects = () => (
+  <section id="projects" className="py-16 md:py-20 bg-background/50 relative section-shell">
+    <div className="container mx-auto px-6 relative z-10">
+      <motion.div initial={{ opacity: 0, y: -20 }} whileInView={{ opacity: 1, y: 0 }} className="text-center mb-10">
+        <h2 className="section-title text-4xl md:text-5xl font-bold mb-4">Featured Projects</h2>
+        <p className="text-muted-foreground max-w-2xl mx-auto">Commercial systems and selected academic work, presented with the right level of technical detail.</p>
+      </motion.div>
 
-        <motion.div
-          className="grid grid-cols-1 md:grid-cols-2 lg:grid-cols-3 gap-10"
-          initial={{ opacity: 0 }}
-          whileInView={{ opacity: 1 }}
-          viewport={{ once: true, amount: 0.2 }}
-        >
-          {projectsData.map((project, index) => (
-            <motion.div
-              key={index}
-              className="glass-card group relative overflow-hidden rounded-[1.75rem]"
-              initial={{ opacity: 0, y: 40 }}
-              whileInView={{ opacity: 1, y: 0 }}
-              transition={{ delay: index * 0.12 }}
-              viewport={{ once: true, amount: 0.2 }}
-            >
-              <div className="relative h-48 overflow-hidden">
-                <div className="absolute inset-0 z-10 bg-gradient-to-t from-background/70 via-transparent to-transparent"></div>
-                <img
-                  src={project.image}
-                  alt={project.title}
-                  className="h-full w-full object-cover transition-transform duration-500 group-hover:scale-110"
-                />
+      <motion.div className="mx-auto grid max-w-6xl gap-5 md:grid-cols-2" initial={{ opacity: 0 }} whileInView={{ opacity: 1 }} viewport={{ once: true, amount: 0.12 }}>
+        {projectsData.map((project, index) => (
+          <motion.article key={project.title} className="project-card group flex overflow-hidden border border-border bg-card flex-col" initial={{ opacity: 0, y: 28 }} whileInView={{ opacity: 1, y: 0 }} transition={{ delay: index * 0.07 }} viewport={{ once: true, amount: 0.2 }}>
+            <div className="relative aspect-video overflow-hidden bg-muted">
+              <img src={project.image} alt={`${project.title} cover`} className="absolute inset-0 h-full w-full object-cover object-top transition-transform duration-500 group-hover:scale-[1.025]" />
+              <span className={`project-type ${project.commercial ? 'commercial' : ''}`}>{project.commercial ? 'Commercial' : 'Academic'}</span>
+            </div>
+            <div className="flex flex-1 flex-col p-5 md:p-6">
+              <project.icon className="mb-3 h-5 w-5 text-primary" />
+              <p className="mb-2 font-mono text-[0.65rem] uppercase tracking-[0.15em] text-secondary">{project.category}</p>
+              <h3 className="text-lg font-bold leading-snug text-foreground">{project.title}</h3>
+              <p className="mt-3 text-sm leading-6 text-muted-foreground">{project.description}</p>
+              <div className="mt-4 flex flex-wrap gap-1.5">
+                {project.technologies.map((tech) => <Badge key={tech} variant="outline" className="border-primary/25 bg-primary/5 text-[0.65rem] text-primary">{tech}</Badge>)}
               </div>
-
-              <div className="p-6 relative">
-                <div className="absolute inset-x-0 bottom-0 h-1 bg-gradient-to-r from-transparent via-primary to-transparent opacity-0 group-hover:opacity-100 transition-opacity duration-300"></div>
-
-                <h3 className="text-xl font-bold mb-2 text-foreground group-hover:text-primary transition-colors duration-300">{project.title}</h3>
-                <p className="text-muted-foreground text-sm mb-4 line-clamp-3 leading-relaxed">{project.description}</p>
-
-                <div className="flex flex-wrap gap-2 mb-6">
-                  {project.technologies.slice(0, 3).map((tech, techIndex) => (
-                    <Badge key={techIndex} variant="outline" className="border-primary/30 text-primary text-xs bg-primary/5">
-                      {tech}
-                    </Badge>
-                  ))}
-                  {project.technologies.length > 3 && (
-                    <Badge variant="outline" className="border-muted text-muted-foreground text-xs">
-                      +{project.technologies.length - 3}
-                    </Badge>
-                  )}
+              {project.commercial && (
+                <div className="commercial-flyer mt-5">
+                  <div>
+                    <p className="font-semibold text-foreground">Available for your business</p>
+                    <p className="mt-1 text-xs leading-5 text-muted-foreground">Request a guided demo or discuss a branded production deployment.</p>
+                  </div>
+                  <a href="#contact" className="demo-request">Request a demo <ArrowRight className="h-4 w-4" /></a>
                 </div>
-
-                <div className="flex items-center justify-between mt-auto pt-4 border-t border-border/50">
-                  {project.github ? (
-                    <a
-                      href={project.github}
-                      target="_blank"
-                      rel="noopener noreferrer"
-                      className="flex items-center text-sm text-muted-foreground hover:text-foreground transition-colors duration-200"
-                    >
-                      <Github size={16} className="mr-2" /> Code
-                    </a>
-                  ) : (
-                    <span className="flex items-center text-sm text-muted-foreground/80">
-                      <Lock size={16} className="mr-2" /> Private
-                    </span>
-                  )}
-
-                  {project.live ? (
-                    <a
-                      href={project.live}
-                      target="_blank"
-                      rel="noopener noreferrer"
-                      className="flex items-center text-sm text-primary hover:text-accent transition-colors duration-200"
-                    >
-                      <ExternalLink size={16} className="mr-2" /> Live Demo
-                    </a>
-                  ) : (
-                    <span className="flex items-center text-sm text-primary/80">
-                      <ExternalLink size={16} className="mr-2" /> Case Study Soon
-                    </span>
-                  )}
-                </div>
+              )}
+              <div className="mt-auto flex items-center gap-5 border-t border-border/60 pt-4">
+                {project.github && <a href={project.github} target="_blank" rel="noopener noreferrer" className="project-link"><Github size={15} /> Source code</a>}
+                {project.live && <a href={project.live} target="_blank" rel="noopener noreferrer" className="project-link is-live"><ExternalLink size={15} /> Live system</a>}
               </div>
-            </motion.div>
-          ))}
-        </motion.div>
-      </div>
-    </section>
-  )
-}
+            </div>
+          </motion.article>
+        ))}
+      </motion.div>
+    </div>
+  </section>
+)
 
 export default Projects

@@ -1,8 +1,8 @@
 /* eslint-disable no-unused-vars */
 import React from 'react'
 import { motion } from 'framer-motion'
-import { BrainCircuit, Code2, Layers3 } from 'lucide-react'
-import profileImage from '../assets/profile.jpg'
+import { BrainCircuit, Code2, Database } from 'lucide-react'
+import { certifications, education, profile } from '@/data/profile'
 
 const About = () => {
   const strengths = [
@@ -12,9 +12,9 @@ const About = () => {
       description: 'Building maintainable interfaces and backend-connected products with a practical engineering mindset.',
     },
     {
-      icon: Layers3,
-      title: 'Cross-Stack Delivery',
-      description: 'Comfortable moving between frontend, APIs, databases, and deployment details to ship complete work.',
+      icon: Database,
+      title: 'Backend and Data',
+      description: 'Secure APIs, role-based access, integrations, and query-heavy workflows built for dependable performance.',
     },
     {
       icon: BrainCircuit,
@@ -38,18 +38,17 @@ const About = () => {
 
         <div className="grid items-center gap-10 lg:grid-cols-[0.9fr_1.1fr]">
           <motion.div
-            className="relative"
+            className="identity-panel"
             initial={{ opacity: 0, x: -50 }}
             whileInView={{ opacity: 1, x: 0 }}
             viewport={{ once: true, amount: 0.5 }}
             transition={{ duration: 0.6, delay: 0.2 }}
           >
-            <div className="absolute -inset-5 rounded-[2rem] bg-gradient-to-br from-primary/20 to-secondary/20 blur-2xl"></div>
-            <img
-              src={profileImage}
-              alt="Profile Picture"
-              className="relative z-10 w-full rounded-[2rem] border border-border/60 object-cover shadow-2xl"
-            />
+            <img src="/ke-mark.svg" alt="Kushan Esala KE monogram" className="w-24" />
+            <p className="mt-8 font-mono text-xs uppercase tracking-[0.2em] text-primary">Current focus</p>
+            <h3 className="mt-3 text-3xl font-bold">Backend systems.<br />Useful automation.<br />Reliable delivery.</h3>
+            <p className="mt-5 max-w-sm leading-7 text-muted-foreground">{profile.summary}</p>
+            <a href={profile.linkedin} target="_blank" rel="noreferrer" className="mt-8 inline-flex items-center gap-2 font-mono text-sm text-primary hover:underline">View current LinkedIn profile ↗</a>
           </motion.div>
           <motion.div
             className="text-lg leading-relaxed"
@@ -59,23 +58,26 @@ const About = () => {
             transition={{ duration: 0.6, delay: 0.4 }}
           >
             <p className="mb-4 text-muted-foreground">
-              I&apos;m a BSc IT undergraduate who enjoys turning ideas into polished products. My work so far spans
-              web platforms, desktop-oriented systems, and AI-focused experimentation, with a strong interest in
-              building software that is both useful and pleasant to use.
+              I&apos;m {profile.name}, a research and development engineer and software engineer based in Kandy, Sri Lanka. At We Are Team Rocket I work across
+              backend services, full-stack tools, data workflows, integrations, and automation for real operating teams.
             </p>
             <p className="mb-4 text-muted-foreground">
-              I work confidently with <span className="font-semibold text-primary">Java, PHP, JavaScript, C#, React, Laravel, and .NET</span>,
-              and I like solving problems across the stack instead of stopping at one layer.
+              I enjoy the parts of product engineering where correctness matters: authentication, authorization,
+              transactional workflows, form behaviour, and queries that must stay fast as systems grow.
             </p>
             <p className="mb-8 text-muted-foreground">
-              Beyond traditional development, I&apos;m especially interested in <span className="font-semibold text-secondary">data science and machine learning</span>.
-              My final-year project focuses on an AI-based dynamic difficulty adjustment system for 2D games, which lets
-              me combine software engineering with applied research.
+              I completed a <span className="font-semibold text-primary">{education.degree}</span> at{' '}
+              <a href={education.schoolUrl} target="_blank" rel="noopener noreferrer" className="font-semibold text-primary hover:underline">SIBA</a>.
+              My research into machine-learning-driven difficulty adjustment for 2D games continues to shape how I think about adaptive systems.
             </p>
+
+            <div className="mb-8 grid gap-3 sm:grid-cols-2">
+              <div className="fact-row"><Code2 className="h-5 w-5" /><span>{certifications.length} developer certifications</span></div>
+            </div>
 
             <div className="grid gap-4 sm:grid-cols-3">
               {strengths.map((item) => (
-                <div key={item.title} className="glass-card rounded-3xl p-5">
+                <div key={item.title} className="border border-border bg-card p-5">
                   <item.icon className="mb-3 h-6 w-6 text-primary" />
                   <h3 className="mb-2 text-base font-bold">{item.title}</h3>
                   <p className="text-sm text-muted-foreground">{item.description}</p>

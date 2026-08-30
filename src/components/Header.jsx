@@ -2,6 +2,7 @@ import React, { useState, useEffect } from 'react'
 import { Menu, X, ArrowUpRight } from 'lucide-react'
 import { Button } from '@/components/ui/button'
 import ThemeToggle from './ThemeToggle'
+import { profile } from '@/data/profile'
 
 const Header = () => {
   const [isMenuOpen, setIsMenuOpen] = useState(false)
@@ -37,9 +38,12 @@ const Header = () => {
       }`}>
       <nav className="container mx-auto px-6 py-4">
         <div className="flex items-center justify-between">
-          <button onClick={() => scrollToSection('#home')} className="text-left">
-            <div className="text-xs uppercase tracking-[0.35em] text-muted-foreground">Kushan Esala</div>
-            <div className="text-lg font-bold text-foreground">Full-Stack Developer</div>
+          <button onClick={() => scrollToSection('#home')} className="flex items-center gap-3 text-left">
+            <img src="/ke-mark.svg" alt="" className="h-10 w-10" />
+            <span>
+              <span className="block font-mono text-xs uppercase tracking-[0.24em] text-primary">Kushan Esala</span>
+              <span className="block text-sm font-semibold text-foreground">Software engineer</span>
+            </span>
           </button>
 
           <div className="hidden md:flex items-center space-x-8">
@@ -53,11 +57,11 @@ const Header = () => {
               </button>
             ))}
             <a
-              href="https://drive.google.com/file/d/1dtGQ_5xV4y7DaqM_5nznWRD49yuCGV6J/view?usp=sharing"
+              href={profile.resume}
               target="_blank"
               rel="noopener noreferrer"
             >
-              <Button className="rounded-full px-5">
+              <Button className="rounded-lg px-5">
                 Resume <ArrowUpRight className="ml-2 h-4 w-4" />
               </Button>
             </a>
@@ -70,6 +74,8 @@ const Header = () => {
               variant="ghost"
               size="icon"
               onClick={() => setIsMenuOpen(!isMenuOpen)}
+              aria-label={isMenuOpen ? 'Close navigation menu' : 'Open navigation menu'}
+              aria-expanded={isMenuOpen}
             >
               {isMenuOpen ? <X size={24} /> : <Menu size={24} />}
             </Button>
@@ -77,7 +83,7 @@ const Header = () => {
         </div>
 
         {isMenuOpen && (
-          <div className="md:hidden mt-4 pb-4 border-t border-border/60 glass rounded-2xl">
+          <div className="mt-4 border border-border bg-card pb-4 md:hidden">
             <div className="flex flex-col space-y-2 pt-4 px-4">
               {navItems.map((item) => (
                 <button
@@ -89,12 +95,12 @@ const Header = () => {
                 </button>
               ))}
               <a
-                href="https://drive.google.com/file/d/1dtGQ_5xV4y7DaqM_5nznWRD49yuCGV6J/view?usp=sharing"
+                href={profile.resume}
                 target="_blank"
                 rel="noopener noreferrer"
                 className="pt-2"
               >
-                <Button className="w-full rounded-full">
+                <Button className="w-full rounded-lg">
                   Resume <ArrowUpRight className="ml-2 h-4 w-4" />
                 </Button>
               </a>

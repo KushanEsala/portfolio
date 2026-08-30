@@ -1,85 +1,52 @@
 /* eslint-disable no-unused-vars */
 import React from 'react'
 import { motion } from 'framer-motion'
+import { BrainCircuit, Braces, CloudCog, Code2, Database, ServerCog, Webhook } from 'lucide-react'
 import {
-  FaJava, FaPhp, FaJs, FaReact, FaLaravel, FaDatabase, FaPython, FaBrain, FaDesktop, FaGlobe, FaCode
-} from 'react-icons/fa'
-import { SiDotnet, SiTailwindcss } from 'react-icons/si'
+  SiAmazonwebservices, SiAngular, SiBootstrap, SiChartdotjs, SiDocker, SiDotnet, SiGit,
+  SiGooglecloud, SiJavascript, SiJenkins, SiLaravel, SiLinux, SiMongodb, SiMysql, SiN8N,
+  SiNginx, SiNodedotjs, SiPhp, SiPm2, SiPostgresql, SiPython, SiReact, SiScikitlearn,
+  SiSharp, SiSqlite, SiSupabase, SiTailwindcss, SiTensorflow,
+} from 'react-icons/si'
+import { skillGroups } from '@/data/profile'
 
-const skillsData = [
-  { name: 'Java', icon: FaJava, category: 'Languages' },
-  { name: 'PHP', icon: FaPhp, category: 'Languages' },
-  { name: 'JavaScript', icon: FaJs, category: 'Languages' },
-  { name: 'C#', icon: FaCode, category: 'Languages' },
-  { name: 'Python', icon: FaPython, category: 'Languages' },
-  { name: 'SQL', icon: FaDatabase, category: 'Languages' },
-  { name: 'React', icon: FaReact, category: 'Frameworks' },
-  { name: 'Laravel', icon: FaLaravel, category: 'Frameworks' },
-  { name: '.NET', icon: SiDotnet, category: 'Frameworks' },
-  { name: 'Tailwind CSS', icon: SiTailwindcss, category: 'Frameworks' },
-  { name: 'Web Development', icon: FaGlobe, category: 'Areas' },
-  { name: 'Desktop Applications', icon: FaDesktop, category: 'Areas' },
-  { name: 'Data Science', icon: FaBrain, category: 'Areas' },
-  { name: 'Machine Learning', icon: FaBrain, category: 'Areas' },
-]
-
-const Skills = () => {
-  const categories = {
-    Languages: skillsData.filter((s) => s.category === 'Languages'),
-    Frameworks: skillsData.filter((s) => s.category === 'Frameworks'),
-    Areas: skillsData.filter((s) => s.category === 'Areas'),
-  }
-
-  return (
-    <section id="skills" className="py-20 md:py-28 bg-background relative section-shell">
-      <div className="container mx-auto px-6 relative z-10">
-        <motion.div
-          initial={{ opacity: 0, y: -20 }}
-          whileInView={{ opacity: 1, y: 0 }}
-          className="text-center mb-16"
-        >
-          <h2 className="section-title text-4xl md:text-5xl font-bold mb-4">
-            Technical Proficiency
-          </h2>
-          <p className="text-muted-foreground max-w-2xl mx-auto">
-            A practical toolkit I use to design, build, and refine full-stack applications.
-          </p>
-        </motion.div>
-
-        <div className="grid grid-cols-1 lg:grid-cols-3 gap-8">
-          {Object.entries(categories).map(([category, skills], idx) => (
-            <motion.div
-              key={category}
-              className="glass p-8 rounded-[1.75rem] relative overflow-hidden group"
-              initial={{ opacity: 0, y: 50 }}
-              whileInView={{ opacity: 1, y: 0 }}
-              transition={{ delay: idx * 0.2 }}
-            >
-              <div className="absolute inset-0 bg-primary/5 opacity-0 group-hover:opacity-100 transition-opacity duration-500 pointer-events-none"></div>
-
-              <h3 className="text-2xl font-bold mb-6 text-foreground flex items-center gap-2">
-                <span className="w-2 h-8 bg-primary rounded-full"></span>
-                {category}
-              </h3>
-
-              <div className="grid grid-cols-2 gap-4">
-                {skills.map((skill, index) => (
-                  <motion.div
-                    key={index}
-                    className="flex items-center gap-3 rounded-2xl border border-border/60 bg-background/50 p-3 transition-all duration-300 hover:border-primary/50 hover:bg-primary/8"
-                    whileHover={{ scale: 1.05 }}
-                  >
-                    <skill.icon className="text-2xl text-primary" />
-                    <span className="font-medium text-sm text-foreground">{skill.name}</span>
-                  </motion.div>
-                ))}
-              </div>
-            </motion.div>
-          ))}
-        </div>
-      </div>
-    </section>
-  )
+const skillIcons = {
+  PHP: SiPhp, JavaScript: SiJavascript, 'C#': SiSharp, Python: SiPython,
+  React: SiReact, Laravel: SiLaravel, '.NET': SiDotnet, Angular: SiAngular,
+  'Node.js': SiNodedotjs, 'Tailwind CSS': SiTailwindcss, Bootstrap: SiBootstrap,
+  MySQL: SiMysql, PostgreSQL: SiPostgresql, MongoDB: SiMongodb, SQLite: SiSqlite,
+  Supabase: SiSupabase, 'Chart.js': SiChartdotjs, 'Scikit-learn': SiScikitlearn,
+  TensorFlow: SiTensorflow, n8n: SiN8N, Docker: SiDocker, Nginx: SiNginx,
+  AWS: SiAmazonwebservices, 'Google Cloud': SiGooglecloud, Jenkins: SiJenkins,
+  Git: SiGit, PM2: SiPm2, 'Linux server administration': SiLinux,
+  'REST APIs': Braces, Webhooks: Webhook, 'Machine learning': BrainCircuit,
+  'AI workflow automation': BrainCircuit, 'Third-party integrations': CloudCog,
+  SQL: Database, Java: Code2, systemd: ServerCog,
 }
+
+const Skills = () => (
+  <section id="skills" className="py-16 md:py-20 bg-background relative section-shell">
+    <div className="container mx-auto px-6 relative z-10">
+      <motion.div initial={{ opacity: 0, y: -20 }} whileInView={{ opacity: 1, y: 0 }} className="text-center mb-10">
+        <h2 className="section-title text-4xl md:text-5xl font-bold mb-4">Working Stack</h2>
+        <p className="text-muted-foreground max-w-2xl mx-auto">The languages, platforms, and operational tools I use in current work.</p>
+      </motion.div>
+
+      <div className="skills-ledger mx-auto max-w-6xl border-t border-border">
+        {skillGroups.map((group, idx) => (
+          <motion.div key={group.label} className="grid gap-4 border-b border-border py-6 md:grid-cols-[0.2fr_0.8fr] md:items-start" initial={{ opacity: 0, y: 24 }} whileInView={{ opacity: 1, y: 0 }} transition={{ delay: idx * 0.08 }}>
+            <h3 className="text-lg font-bold">{group.label}</h3>
+            <div className="grid grid-cols-2 gap-2 sm:grid-cols-3 lg:grid-cols-4">
+              {group.skills.map((skill) => {
+                const Icon = skillIcons[skill] || Code2
+                return <span key={skill} className="skill-chip flex items-center gap-2.5"><Icon className="h-4 w-4 shrink-0 text-primary" aria-hidden="true" /><span>{skill}</span></span>
+              })}
+            </div>
+          </motion.div>
+        ))}
+      </div>
+    </div>
+  </section>
+)
 
 export default Skills
