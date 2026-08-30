@@ -19,6 +19,27 @@ const Contact = () => {
 
     if (formData.get('website')) return
 
+    const enquiry = {
+      name: String(formData.get('user_name') || '').trim(),
+      email: String(formData.get('user_email') || '').trim(),
+      phone: String(formData.get('user_phone') || '').trim() || 'Not provided',
+      subject: String(formData.get('subject') || '').trim(),
+      description: String(formData.get('message') || '').trim(),
+    }
+
+    const inboxMessage = [
+      'NEW PORTFOLIO ENQUIRY',
+      '------------------------------',
+      `Name: ${enquiry.name}`,
+      `Email: ${enquiry.email}`,
+      `Phone: ${enquiry.phone}`,
+      `What this is about: ${enquiry.subject}`,
+      '',
+      'DESCRIPTION',
+      '------------------------------',
+      enquiry.description,
+    ].join('\n')
+
     setIsSubmitting(true)
 
     const serviceId = 'service_7s35djb'
@@ -27,7 +48,27 @@ const Contact = () => {
 
     try {
       toast.dismiss('contact-status')
-      await emailjs.sendForm(serviceId, templateIdAdmin, form.current, publicKey)
+      await emailjs.send(
+        serviceId,
+        templateIdAdmin,
+        {
+          to_email: profile.email,
+          from_name: enquiry.name,
+          user_name: enquiry.name,
+          name: enquiry.name,
+          from_email: enquiry.email,
+          user_email: enquiry.email,
+          email: enquiry.email,
+          reply_to: enquiry.email,
+          user_phone: enquiry.phone,
+          phone: enquiry.phone,
+          subject: `Portfolio enquiry: ${enquiry.subject}`,
+          enquiry_subject: enquiry.subject,
+          message: inboxMessage,
+          description: enquiry.description,
+        },
+        { publicKey },
+      )
 
       toast.success('Message sent. I’ll reply to the email you entered.', { id: 'contact-status', duration: 4500 })
       form.current.reset()

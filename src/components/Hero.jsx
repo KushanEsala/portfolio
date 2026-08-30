@@ -48,7 +48,7 @@ const Hero = () => {
                 animate={{ opacity: 1, y: 0 }}
                 transition={{ duration: 0.5, delay: 0.35 }}
               >
-                I&apos;m {profile.name}, a research and development engineer working from interface to API,
+                I&apos;m {profile.name}, an associate research and development engineer working from interface to API,
                 automation, database, and deployment. I deliver maintainable internal platforms and production-ready SaaS builds.
               </motion.p>
 

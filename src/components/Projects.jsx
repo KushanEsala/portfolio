@@ -35,6 +35,7 @@ const projectsData = [
     description: 'A production operations platform for agreements, installments, inventory, sales, receivables, payables, and branch reporting.',
     image: hirePurchaseProject,
     technologies: ['Next.js', 'Laravel', 'MariaDB'],
+    live: 'https://erp.examebuddy.com/',
     icon: WalletCards,
     commercial: true,
   },

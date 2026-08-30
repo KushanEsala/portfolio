@@ -58,7 +58,7 @@ const About = () => {
             transition={{ duration: 0.6, delay: 0.4 }}
           >
             <p className="mb-4 text-muted-foreground">
-              I&apos;m {profile.name}, a research and development engineer and software engineer based in Kandy, Sri Lanka. At We Are Team Rocket I work across
+              I&apos;m {profile.name}, an associate research and development engineer and software engineer based in Kandy, Sri Lanka. At We Are Team Rocket I work across
               backend services, full-stack tools, data workflows, integrations, and automation for real operating teams.
             </p>
             <p className="mb-4 text-muted-foreground">

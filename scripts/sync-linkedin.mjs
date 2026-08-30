@@ -41,6 +41,8 @@ const normalizedExperience = rawExperience
     title: item.title || item.position || item.job_title || 'Role',
     company: item.company || item.company_name || item.companyName || 'Company',
     type: item.employment_type || item.employmentType || 'Professional experience',
+    location: typeof item.location === 'string' ? item.location : item.location?.fullLocation || null,
+    workMode: item.workplace_type || item.workplaceType || item.location_type || null,
     period: item.date_range || item.duration || [item.start_date, item.end_date || 'Present'].filter(Boolean).join(' - '),
     current: !item.end_date || /present/i.test(item.date_range || item.duration || ''),
     highlights: (Array.isArray(item.description) ? item.description : [item.description])

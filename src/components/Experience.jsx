@@ -42,7 +42,9 @@ const Experience = () => {
                   <h3 className="text-lg font-bold md:text-xl">{exp.title}</h3>
                   {exp.current && <span className="current-badge">Current</span>}
                 </div>
-                <p className="mt-1 text-xs text-muted-foreground">{exp.type}</p>
+                <p className="mt-1 text-xs text-muted-foreground">
+                  {[exp.type, exp.location, exp.workMode].filter(Boolean).join(' · ')}
+                </p>
                 <ul className="mt-4 grid gap-x-6 gap-y-2 text-sm text-muted-foreground md:grid-cols-2">
                   {exp.highlights.slice(0, 4).map((highlight) => (
                     <li key={highlight} className="flex gap-2 leading-relaxed">
