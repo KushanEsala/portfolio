@@ -11,7 +11,7 @@ export const profile = {
   phone: '+94 75 462 8289',
   linkedin: 'https://www.linkedin.com/in/kushan-esala/',
   github: 'https://github.com/KushanEsala',
-  resume: 'https://drive.google.com/file/d/12Xw3GlJfunqGZ5ibOkPNnxWkkcWfnF5L/view?usp=drive_link',
+  resume: 'https://drive.google.com/file/d/1O5J517ZZSuEtAER8XydrOR3sYTywb3n5/view?usp=sharing',
   summary: syncedProfile.summary ||
     'AI-first software engineer focused on backend systems, production SaaS builds, automation workflows, and reliable infrastructure.',
 }
