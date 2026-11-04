@@ -1,117 +1,46 @@
 import React, { useState, useEffect } from 'react'
-import { Menu, X, ArrowUpRight } from 'lucide-react'
-import { Button } from '@/components/ui/button'
 import ThemeToggle from './ThemeToggle'
+import FieldGlyph from './FieldGlyph'
 import { profile } from '@/data/profile'
 
-const Header = () => {
+const navItems = [
+  { name: 'About', href: '#about' },
+  { name: 'Experience', href: '#experience' },
+  { name: 'Skills', href: '#skills' },
+  { name: 'Projects', href: '#projects' },
+  { name: 'Contact', href: '#contact' },
+]
+
+export default function Header() {
   const [isMenuOpen, setIsMenuOpen] = useState(false)
   const [isScrolled, setIsScrolled] = useState(false)
 
   useEffect(() => {
-    const handleScroll = () => {
-      setIsScrolled(window.scrollY > 50)
-    }
-    window.addEventListener('scroll', handleScroll)
+    const handleScroll = () => setIsScrolled(window.scrollY > 32)
+    window.addEventListener('scroll', handleScroll, { passive: true })
     return () => window.removeEventListener('scroll', handleScroll)
   }, [])
 
-  const navItems = [
-    { name: 'Home', href: '#home' },
-    { name: 'About', href: '#about' },
-    { name: 'Experience', href: '#experience' },
-    { name: 'Skills', href: '#skills' },
-    { name: 'Projects', href: '#projects' },
-    { name: 'Contact', href: '#contact' }
-  ]
+  const closeMenu = () => setIsMenuOpen(false)
 
-  const scrollToSection = (href) => {
-    const element = document.querySelector(href)
-    if (element) {
-      element.scrollIntoView({ behavior: 'smooth' })
-    }
-    setIsMenuOpen(false)
-  }
-
-  return (
-    <header className={`fixed top-0 left-0 right-0 z-50 transition-all duration-300 ${isScrolled ? 'bg-background/80 backdrop-blur-xl shadow-[0_12px_40px_rgba(15,23,42,0.12)] border-b border-border/60' : 'bg-transparent'
-      }`}>
-      <nav className="container mx-auto px-6 py-4">
-        <div className="flex items-center justify-between">
-          <a href="#home" onClick={(event) => { event.preventDefault(); scrollToSection('#home') }} className="flex items-center gap-3 text-left">
-            <img src="/ke-mark.svg" alt="" className="h-10 w-10" />
-            <span>
-              <span className="block font-mono text-xs uppercase tracking-[0.24em] text-primary">Kushan Esala</span>
-              <span className="block text-sm font-semibold text-foreground">Software engineer</span>
-            </span>
-          </a>
-
-          <div className="hidden md:flex items-center space-x-8">
-            {navItems.map((item) => (
-              <a
-                key={item.name}
-                href={item.href}
-                onClick={(event) => { event.preventDefault(); scrollToSection(item.href) }}
-                className="text-sm text-foreground/80 hover:text-primary transition-colors duration-200 font-medium"
-              >
-                {item.name}
-              </a>
-            ))}
-            <a
-              href={profile.resume}
-              target="_blank"
-              rel="noopener noreferrer"
-            >
-              <Button className="rounded-lg px-5">
-                Resume <ArrowUpRight className="ml-2 h-4 w-4" />
-              </Button>
-            </a>
-            <ThemeToggle />
-          </div>
-
-          <div className="md:hidden flex items-center space-x-2">
-            <ThemeToggle />
-            <Button
-              variant="ghost"
-              size="icon"
-              onClick={() => setIsMenuOpen(!isMenuOpen)}
-              aria-label={isMenuOpen ? 'Close navigation menu' : 'Open navigation menu'}
-              aria-expanded={isMenuOpen}
-            >
-              {isMenuOpen ? <X size={24} /> : <Menu size={24} />}
-            </Button>
-          </div>
-        </div>
-
-        {isMenuOpen && (
-          <div className="mt-4 border border-border bg-card pb-4 md:hidden">
-            <div className="flex flex-col space-y-2 pt-4 px-4">
-              {navItems.map((item) => (
-                <a
-                  key={item.name}
-                  href={item.href}
-                  onClick={(event) => { event.preventDefault(); scrollToSection(item.href) }}
-                  className="text-left text-foreground hover:text-primary transition-colors duration-200 font-medium py-2"
-                >
-                  {item.name}
-                </a>
-              ))}
-              <a
-                href={profile.resume}
-                target="_blank"
-                rel="noopener noreferrer"
-                className="pt-2"
-              >
-                <Button className="w-full rounded-lg">
-                  Resume <ArrowUpRight className="ml-2 h-4 w-4" />
-                </Button>
-              </a>
-            </div>
-          </div>
-        )}
-      </nav>
-    </header>
-  )
+  return <header className={`site-header ${isScrolled ? 'is-scrolled' : ''}`}>
+    <nav className="site-container header-inner" aria-label="Main navigation">
+      <a href="#home" className="wordmark" onClick={closeMenu} aria-label="Kushan Esala, back to top">
+        <span className="wordmark-symbol" aria-hidden="true">K<span>↗</span>E</span>
+        <span className="wordmark-name">Kushan<br />Esala</span>
+      </a>
+      <div className="header-links">
+        {navItems.map(item => <a href={item.href} key={item.name}>{item.name}</a>)}
+      </div>
+      <div className="header-tools">
+        <a href={profile.resume} target="_blank" rel="noopener noreferrer" className="header-cv">View CV <FieldGlyph name="arrow" size={16} /></a>
+        <ThemeToggle />
+        <button className="menu-toggle" type="button" onClick={() => setIsMenuOpen(open => !open)} aria-label={isMenuOpen ? 'Close navigation menu' : 'Open navigation menu'} aria-expanded={isMenuOpen} aria-controls="mobile-navigation"><FieldGlyph name={isMenuOpen ? 'close' : 'menu'} size={22} /></button>
+      </div>
+    </nav>
+    <div id="mobile-navigation" className={`mobile-navigation ${isMenuOpen ? 'is-open' : ''}`} inert={!isMenuOpen}>
+      {navItems.map(item => <a href={item.href} key={item.name} onClick={closeMenu}>{item.name}<FieldGlyph name="arrow" size={19} /></a>)}
+      <a href={profile.resume} target="_blank" rel="noopener noreferrer" onClick={closeMenu}>View CV <FieldGlyph name="arrow" size={19} /></a>
+    </div>
+  </header>
 }
-
-export default Header

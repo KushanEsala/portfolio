@@ -1,6 +1,4 @@
-/* eslint-disable no-unused-vars */
 import React from 'react'
-import { motion } from 'framer-motion'
 import { BrainCircuit, Braces, CloudCog, Code2, Database, ServerCog, Webhook } from 'lucide-react'
 import {
   SiAmazonwebservices, SiAngular, SiBootstrap, SiChartdotjs, SiDocker, SiDotnet, SiGit,
@@ -9,6 +7,9 @@ import {
   SiSharp, SiSqlite, SiSupabase, SiTailwindcss, SiTensorflow,
 } from 'react-icons/si'
 import { skillGroups } from '@/data/profile'
+import FieldGlyph from './FieldGlyph'
+import SectionHead from './SectionHead'
+import Reveal from './Reveal'
 
 const skillIcons = {
   PHP: SiPhp, JavaScript: SiJavascript, 'C#': SiSharp, Python: SiPython,
@@ -25,24 +26,20 @@ const skillIcons = {
 }
 
 const Skills = () => (
-  <section id="skills" className="py-16 md:py-20 bg-background relative section-shell">
-    <div className="container mx-auto px-6 relative z-10">
-      <motion.div initial={{ opacity: 0, y: -20 }} whileInView={{ opacity: 1, y: 0 }} className="text-center mb-10">
-        <h2 className="section-title text-4xl md:text-5xl font-bold mb-4">Working Stack</h2>
-        <p className="text-muted-foreground max-w-2xl mx-auto">The languages, platforms, and operational tools I use in current work.</p>
-      </motion.div>
-
-      <div className="skills-ledger mx-auto max-w-6xl border-t border-border">
+  <section id="skills" className="section-shell">
+    <div className="site-container section-inner">
+      <SectionHead label="Tools of the trade" title="A working stack, not a buzzword list." deck="Languages and tools I use to build, connect, and maintain software." />
+      <div className="skills-ledger">
         {skillGroups.map((group, idx) => (
-          <motion.div key={group.label} className="grid gap-4 border-b border-border py-6 md:grid-cols-[0.2fr_0.8fr] md:items-start" initial={{ opacity: 0, y: 24 }} whileInView={{ opacity: 1, y: 0 }} transition={{ delay: idx * 0.08 }}>
-            <h3 className="text-lg font-bold">{group.label}</h3>
-            <div className="grid grid-cols-2 gap-2 sm:grid-cols-3 lg:grid-cols-4">
+          <Reveal key={group.label} className="skill-row" delay={Math.min(idx * .06, .22)}>
+            <h3><FieldGlyph name={['stack', 'circuit', 'data', 'signal', 'stack'][idx]} size={20} className="inline-block mr-3 align-middle text-secondary" />{group.label}</h3>
+            <div className="skill-tags">
               {group.skills.map((skill) => {
                 const Icon = skillIcons[skill] || Code2
-                return <span key={skill} className="skill-chip flex items-center gap-2.5"><Icon className="h-4 w-4 shrink-0 text-primary" aria-hidden="true" /><span>{skill}</span></span>
+                return <span key={skill} className="skill-chip"><Icon className="h-4 w-4 shrink-0" aria-hidden="true" /><span>{skill}</span></span>
               })}
             </div>
-          </motion.div>
+          </Reveal>
         ))}
       </div>
     </div>
