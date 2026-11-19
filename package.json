@@ -2,7 +2,7 @@
   "name": "Kushan-Esala",
   "private": true,
   "version": "0.0.0",
-  "homepage": "https://kushanesala.me",
+  "homepage": "https://esala.me",
   "type": "module",
   "scripts": {
     "dev": "vite",

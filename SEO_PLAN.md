@@ -1,4 +1,4 @@
-# SEO plan for kushanesala.me
+# SEO plan for esala.me
 
 ## Implemented in this release
 
@@ -38,10 +38,10 @@ These phrases should be used only where they describe real work. Google does not
 
 ## Manual launch steps
 
-1. Add `kushanesala.me` as a Domain property in Google Search Console and complete the DNS TXT verification.
-2. Submit `https://kushanesala.me/sitemap.xml` in Search Console.
-3. Inspect `https://kushanesala.me/` and request indexing after this deployment is live.
-4. Add `https://kushanesala.me/` to the LinkedIn contact section and GitHub profile so Google sees consistent identity links.
+1. Add `esala.me` as a Domain property in Google Search Console and complete the DNS TXT verification.
+2. Submit `https://esala.me/sitemap.xml` in Search Console.
+3. Inspect `https://esala.me/` and request indexing after this deployment is live.
+4. Add `https://esala.me/` to the LinkedIn contact section and GitHub profile so Google sees consistent identity links.
 5. Review Search Console after two to four weeks for impressions, indexed status, mobile usability, and the queries that actually surface the page.
 
 ## Next content phase
