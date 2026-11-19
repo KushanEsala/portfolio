@@ -23,7 +23,8 @@ const cvExperience = [
     type: 'Full-time',
     location: 'Colombo, Western Province, Sri Lanka',
     workMode: 'Hybrid',
-    period: 'Apr 2026 - Present · 5 mos',
+    startDate: '2026-04-01',
+    period: 'Apr 2026 - Present',
     current: true,
     highlights: [
       'Implement and refine features for internal tools and automation systems used in lead-generation workflows.',
