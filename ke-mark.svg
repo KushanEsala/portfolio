@@ -1,6 +1,6 @@
 <svg xmlns="http://www.w3.org/2000/svg" viewBox="0 0 64 64" role="img" aria-labelledby="title">
   <title id="title">Kushan Esala monogram</title>
-  <rect x="3" y="3" width="58" height="58" fill="#edf2ed" stroke="#16352f" stroke-width="3" transform="rotate(-4 32 32)"/>
-  <path fill="#16352f" d="M13 16h7v14l12-14h9L27 32l14 16h-9L20 34v14h-7V16Zm29 0h11v6h-5v7h5v6h-5v7h5v6H42V16Z"/>
-  <path fill="none" stroke="#e76d4f" stroke-width="2.4" stroke-linecap="square" d="m29 14 6-6m-6 0 6 6"/>
+  <rect x="3" y="3" width="58" height="58" rx="12" fill="#142338"/>
+  <path fill="#f5f7fb" d="M13 16h7v14l12-14h9L27 32l14 16h-9L20 34v14h-7V16Zm29 0h11v6h-5v7h5v6h-5v7h5v6H42V16Z"/>
+  <path fill="none" stroke="#ba744d" stroke-width="2.4" stroke-linecap="round" d="m29 14 6-6m-6 0 6 6"/>
 </svg>
