@@ -6,12 +6,12 @@ Kushan builds production SaaS applications, backend services, business systems, 
 
 ## Portfolio
 
-- [Home](https://kushanesala.me/): Official portfolio and professional overview.
-- [About](https://kushanesala.me/#about): Engineering focus, background, education, and certifications.
-- [Experience](https://kushanesala.me/#experience): Current and previous software engineering roles.
-- [Skills](https://kushanesala.me/#skills): Languages, frameworks, data tools, automation, cloud, and DevOps capabilities.
-- [Projects](https://kushanesala.me/#projects): Commercial systems, final-year research, and selected academic projects.
-- [Contact](https://kushanesala.me/#contact): Contact form for engineering work, SaaS builds, and product demonstrations.
+- [Home](https://esala.me/): Official portfolio and professional overview.
+- [About](https://esala.me/#about): Engineering focus, background, education, and certifications.
+- [Experience](https://esala.me/#experience): Current and previous software engineering roles.
+- [Skills](https://esala.me/#skills): Languages, frameworks, data tools, automation, cloud, and DevOps capabilities.
+- [Projects](https://esala.me/#projects): Commercial systems, final-year research, and selected academic projects.
+- [Contact](https://esala.me/#contact): Contact form for engineering work, SaaS builds, and product demonstrations.
 
 ## Professional Profiles
 
