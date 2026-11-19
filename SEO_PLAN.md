@@ -18,6 +18,8 @@
 - Kushan Esala software engineer
 - Kushan Esala Kandy
 - Esala software engineer
+- Esala R&D engineer
+- Esala Rocket
 
 ### Professional searches
 
@@ -38,9 +40,9 @@ These phrases should be used only where they describe real work. Google does not
 
 ## Manual launch steps
 
-1. Add `esala.me` as a Domain property in Google Search Console and complete the DNS TXT verification.
-2. Submit `https://esala.me/sitemap.xml` in Search Console.
-3. Inspect `https://esala.me/` and request indexing after this deployment is live.
+1. Add `esala.me` as a Domain property in Google Search Console and complete DNS TXT verification.
+2. Submit `https://esala.me/sitemap.xml` in Search Console, then inspect `https://esala.me/` and request indexing.
+3. If `kushanesala.me` is still owned, restore HTTPS and permanently redirect its portfolio URLs to `https://esala.me/`. Submit a Change of Address request from the verified old property in Search Console.
 4. Add `https://esala.me/` to the LinkedIn contact section and GitHub profile so Google sees consistent identity links.
 5. Review Search Console after two to four weeks for impressions, indexed status, mobile usability, and the queries that actually surface the page.
 
@@ -53,4 +55,4 @@ These phrases should be used only where they describe real work. Google does not
 
 ## Expectations
 
-Technical SEO makes the portfolio crawlable and understandable, but it cannot guarantee a ranking. Branded searches such as “Kushan Esala” are the most realistic early target. Broader terms such as “software engineer Kandy” depend on indexing time, useful supporting content, external references, and competition.
+Technical SEO makes the portfolio crawlable and understandable, but it cannot guarantee a ranking. “Kushan Esala” and name-plus-role or employer searches are realistic early targets. “Esala” alone is much broader and more competitive. Rankings depend on indexing time, useful content, external references, and competition.

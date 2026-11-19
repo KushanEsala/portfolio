@@ -24,7 +24,7 @@ export default function Hero() {
           From first click<br />to last database<br /><span>query<span className="hero-period">.</span></span>
         </Motion.h1>
         <Motion.p className="hero-description" {...rise(0.27)}>
-          I&apos;m {profile.name}. I build interfaces, APIs, automations and the less visible systems that make a product dependable.
+          I&apos;m {profile.name}, an R&amp;D engineer at {profile.company}. I build interfaces, APIs, automations and the less visible systems that make a product dependable.
         </Motion.p>
         <Motion.div className="hero-actions" {...rise(0.39)}>
           <a className="action-link action-link-primary" href="#projects">Explore the work <FieldGlyph name="arrow" size={19} /></a>
