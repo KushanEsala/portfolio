@@ -53,11 +53,10 @@ export default function Contact() {
 
   return <section id="contact" className="section-shell">
     <div className="site-container section-inner">
-      <SectionHead label="Say hello" title="Have something in mind?" deck="A product demo, an engineering project, or just a good question. Send me the details." />
+      <SectionHead title="Get in touch." />
       <div className="contact-grid">
         <Reveal className="contact-note">
-          <h3>Good work starts with a conversation<span className="text-secondary">.</span></h3>
-          <p>You can use the form or reach me directly. I&apos;m based in Kandy, Sri Lanka.</p>
+          <h3>Contact details</h3>
           <div className="contact-details">
             <div className="contact-detail"><FieldGlyph name="mail" size={22} /><div><small>Email</small><a href={`mailto:${profile.email}`}>{profile.email}</a></div></div>
             <div className="contact-detail"><FieldGlyph name="phone" size={22} /><div><small>Phone</small><a href="tel:+94754628289">{profile.phone}</a></div></div>
@@ -65,7 +64,7 @@ export default function Contact() {
           </div>
         </Reveal>
         <Reveal className="contact-form-wrap" delay={.08}>
-          <div className="contact-form-top"><span>Project enquiry</span><span>Direct to inbox ↗</span></div>
+          <div className="contact-form-top"><span>Send a message</span></div>
           <form ref={form} onSubmit={sendEmail} className="contact-form">
             <input type="hidden" name="to_email" value={profile.email} />
             <div className="absolute -left-[9999px]" aria-hidden="true"><label htmlFor="website">Website</label><input id="website" name="website" type="text" tabIndex="-1" autoComplete="off" /></div>

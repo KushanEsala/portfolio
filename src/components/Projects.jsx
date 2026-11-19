@@ -70,7 +70,7 @@ const projectsData = [
 const Projects = () => (
   <section id="projects" className="section-shell">
     <div className="site-container section-inner">
-      <SectionHead label="Selected work" title="Built for real use." deck="Commercial systems alongside research and academic projects." />
+      <SectionHead title="Selected projects." />
       <div className="projects-grid">
         {projectsData.map((project, index) => (
           <Reveal key={project.title} delay={Math.min(index % 2 * .08, .2)}>
@@ -84,12 +84,6 @@ const Projects = () => (
               <h3 className="project-title">{project.title}</h3>
               <p className="project-description">{project.description}</p>
               <div className="project-tech">{project.technologies.map((tech) => <span key={tech}>{tech}</span>)}</div>
-              {project.commercial && (
-                <div className="commercial-flyer">
-                  <p>Interested in this system for your business? Ask for a walkthrough.</p>
-                  <a href="#contact" className="demo-request">Request demo <FieldGlyph name="arrow" size={15} /></a>
-                </div>
-              )}
               <div className="project-links">
                 {project.github && <a href={project.github} target="_blank" rel="noopener noreferrer" className="project-link">Source code <FieldGlyph name="arrow" size={15} /></a>}
                 {project.live && <a href={project.live} target="_blank" rel="noopener noreferrer" className="project-link">View live system <FieldGlyph name="arrow" size={15} /></a>}

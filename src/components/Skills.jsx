@@ -28,7 +28,7 @@ const skillIcons = {
 const Skills = () => (
   <section id="skills" className="section-shell">
     <div className="site-container section-inner">
-      <SectionHead label="Tools of the trade" title="A working stack, not a buzzword list." deck="Languages and tools I use to build, connect, and maintain software." />
+      <SectionHead title="Tools I use." />
       <div className="skills-ledger">
         {skillGroups.map((group, idx) => (
           <Reveal key={group.label} className="skill-row" delay={Math.min(idx * .06, .22)}>

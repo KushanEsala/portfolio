@@ -13,14 +13,8 @@ const strengths = [
 export default function About() {
   return <section id="about" className="section-shell">
     <div className="site-container section-inner">
-      <SectionHead label="The person" title="A little about the work, and me." />
+      <SectionHead title="About me." />
       <div className="about-grid">
-        <Reveal className="about-note">
-          <p className="note-label">On the workbench / now</p>
-          <h3>Make it useful.<br /><span>Make it hold up.</span></h3>
-          <p className="muted-copy">The details behind a product matter as much as what shows on screen.</p>
-          <div className="note-sign"><span>Kushan Esala</span><span>↗ Kandy, LK</span></div>
-        </Reveal>
         <Reveal className="about-copy" delay={.08}>
           <p className="section-lead">I&apos;m {profile.name}, an R&amp;D engineer working across the full path from a user&apos;s first action to the data and services behind it.</p>
           <p className="muted-copy">At {profile.company}, I work on backend services, full-stack tools, data workflows, integrations, and automation for operating teams.</p>

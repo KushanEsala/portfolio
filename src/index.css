@@ -1,4 +1,4 @@
-@import url('https://fonts.googleapis.com/css2?family=Anybody:wght@400;500;600;700;800&family=Atkinson+Hyperlegible:wght@400;700&family=DM+Mono:wght@400;500&display=swap');
+@import url('https://fonts.googleapis.com/css2?family=DM+Sans:wght@400;500;600;700&family=IBM+Plex+Mono:wght@400;500;600&family=Sora:wght@400;500;600;700&display=swap');
 @import "tailwindcss";
 @import "tw-animate-css";
 
@@ -30,72 +30,54 @@
 }
 
 :root {
-  --radius: 0.3rem;
-  --background: #edf2ed;
-  --foreground: #16352f;
-  --card: #f8faf5;
-  --card-foreground: #16352f;
-  --popover: #f8faf5;
-  --popover-foreground: #16352f;
-  --primary: #175f54;
-  --primary-foreground: #f8faf5;
-  --secondary: #e76d4f;
-  --secondary-foreground: #1b2f2b;
-  --muted: #dfe9e2;
-  --muted-foreground: #557068;
-  --accent: #bfd5ba;
-  --accent-foreground: #16352f;
-  --destructive: #bb4d3a;
-  --border: #b7ccc1;
-  --input: #f4f7f2;
-  --ring: #e76d4f;
-  --drawing-paper: #f8faf5;
-  --drawing-front: #eaf4e9;
-  --drawing-mid: #c3dcd0;
-  --drawing-back: #a8cbbd;
-  --drawing-ink: #173b35;
-  --drawing-grid: #d0e0d3;
-  --drawing-dot: #5d8c79;
-  --drawing-trace: #53907a;
-  --drawing-accent: #e76d4f;
+  --radius: 0.75rem;
+  --background: #f5f7fb;
+  --foreground: #142338;
+  --card: #ffffff;
+  --card-foreground: #142338;
+  --popover: #ffffff;
+  --popover-foreground: #142338;
+  --primary: #2457b8;
+  --primary-foreground: #ffffff;
+  --secondary: #ba744d;
+  --secondary-foreground: #ffffff;
+  --muted: #e9eef5;
+  --muted-foreground: #53647a;
+  --accent: #dce8fa;
+  --accent-foreground: #142338;
+  --destructive: #b94b4b;
+  --border: #d2dce8;
+  --input: #f0f4f9;
+  --ring: #3d70d2;
 }
 
 .dark {
-  --background: #102824;
-  --foreground: #e8f0e7;
-  --card: #183831;
-  --card-foreground: #e8f0e7;
-  --popover: #183831;
-  --popover-foreground: #e8f0e7;
-  --primary: #a2d9bc;
-  --primary-foreground: #102824;
-  --secondary: #f29271;
-  --secondary-foreground: #102824;
-  --muted: #24453d;
-  --muted-foreground: #aec4b7;
-  --accent: #315f4f;
-  --accent-foreground: #e8f0e7;
-  --destructive: #ed866c;
-  --border: #456b5e;
-  --input: #1b3b34;
-  --ring: #f29271;
-  --drawing-paper: #193a31;
-  --drawing-front: #35644c;
-  --drawing-mid: #2d5643;
-  --drawing-back: #244a3a;
-  --drawing-ink: #d5e9d8;
-  --drawing-grid: #2d4f40;
-  --drawing-dot: #87b29a;
-  --drawing-trace: #a2d9bc;
-  --drawing-accent: #f29271;
+  --background: #0b1524;
+  --foreground: #eaf1fa;
+  --card: #142235;
+  --card-foreground: #eaf1fa;
+  --popover: #142235;
+  --popover-foreground: #eaf1fa;
+  --primary: #8fb8ff;
+  --primary-foreground: #0b1524;
+  --secondary: #dca47d;
+  --secondary-foreground: #0b1524;
+  --muted: #1c2d42;
+  --muted-foreground: #aab9ce;
+  --accent: #243b59;
+  --accent-foreground: #eaf1fa;
+  --destructive: #e67d7d;
+  --border: #2e455f;
+  --input: #17263b;
+  --ring: #8fb8ff;
 }
 
 @layer base {
   * { @apply border-border outline-ring/50; }
   html { scroll-behavior: smooth; scroll-padding-top: 5.5rem; }
-  body { @apply bg-background text-foreground; font-family: 'Atkinson Hyperlegible', Arial, sans-serif; min-width: 320px; overflow-x: hidden; }
-  h1, h2, h3, h4, h5, h6 { font-family: 'Anybody', 'Arial Black', sans-serif; }
-  .font-mono { font-family: 'DM Mono', Consolas, monospace; }
+  body { @apply bg-background text-foreground; font-family: 'DM Sans', Arial, sans-serif; min-width: 320px; overflow-x: hidden; }
+  h1, h2, h3, h4, h5, h6 { font-family: 'Sora', Arial, sans-serif; }
+  .font-mono { font-family: 'IBM Plex Mono', Consolas, monospace; }
   ::selection { background: var(--secondary); color: var(--secondary-foreground); }
   :focus-visible { outline: 2px solid var(--secondary); outline-offset: 3px; }
 }

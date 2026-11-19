@@ -8,7 +8,7 @@ export default function Experience() {
   const orderedExperience = [...experience].sort((a, b) => Number(Boolean(b.current)) - Number(Boolean(a.current)))
   return <section id="experience" className="section-shell">
     <div className="site-container section-inner">
-      <SectionHead label="Where I've worked" title="Experience shaped by real systems." deck="Roles, teams, and the day-to-day engineering behind the finished product." />
+      <SectionHead title="Work history." />
       <div className="experience-list">
         {orderedExperience.map((exp, index) => <Reveal key={`${exp.company}-${exp.title}`} delay={Math.min(index * .07, .2)}>
           <article className="experience-item">
