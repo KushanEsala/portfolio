@@ -6,18 +6,18 @@ Kushan builds production SaaS applications, backend services, business systems, 
 
 ## Portfolio
 
-- [Home](https://kushanesala.me/): Official portfolio and professional overview.
-- [About](https://kushanesala.me/#about): Engineering focus, background, education, and certifications.
-- [Experience](https://kushanesala.me/#experience): Current and previous software engineering roles.
-- [Skills](https://kushanesala.me/#skills): Languages, frameworks, data tools, automation, cloud, and DevOps capabilities.
-- [Projects](https://kushanesala.me/#projects): Commercial systems, final-year research, and selected academic projects.
-- [Contact](https://kushanesala.me/#contact): Contact form for engineering work, SaaS builds, and product demonstrations.
+- [Home](https://esala.me/): Official portfolio and professional overview.
+- [About](https://esala.me/#about): Engineering focus, background, education, and certifications.
+- [Experience](https://esala.me/#experience): Current and previous software engineering roles.
+- [Skills](https://esala.me/#skills): Languages, frameworks, data tools, automation, cloud, and DevOps capabilities.
+- [Projects](https://esala.me/#projects): Commercial systems, final-year research, and selected academic projects.
+- [Contact](https://esala.me/#contact): Contact form for engineering work, SaaS builds, and product demonstrations.
 
 ## Professional Profiles
 
 - [LinkedIn](https://www.linkedin.com/in/kushan-esala/): Current professional profile and employment history.
 - [GitHub](https://github.com/KushanEsala): Public source repositories and development activity.
-- [Resume](https://drive.google.com/file/d/12Xw3GlJfunqGZ5ibOkPNnxWkkcWfnF5L/view?usp=drive_link): Current curriculum vitae.
+- [Resume](https://drive.google.com/file/d/1O5J517ZZSuEtAER8XydrOR3sYTywb3n5/view?usp=sharing): Current curriculum vitae.
 
 ## Commercial Systems
 
